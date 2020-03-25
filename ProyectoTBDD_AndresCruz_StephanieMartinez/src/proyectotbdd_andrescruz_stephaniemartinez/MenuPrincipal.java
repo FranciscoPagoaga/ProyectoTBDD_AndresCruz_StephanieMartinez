@@ -18,14 +18,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     public MenuPrincipal() throws ClassNotFoundException, SQLException {
         initComponents();
         this.setLocationRelativeTo(null);
-        try {
-            Class.forName("org.mariadb.jdbc.Driver");
-            DriverManager.getConnection("jdbc:mariadb://database-1.cp26b5jxlstx.us-east-1.rds.amazonaws.com:3307/DBCompany?user=admin&password=password1");
-        } catch (ClassNotFoundException exc) {
-            exc.printStackTrace();
-        } catch (SQLException ex) {
-            Logger.getLogger(MenuPrincipal.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        BaseDeDatos bd = new BaseDeDatos();
         //jd_ventanaAdmin.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         //ventana.setVisible(true);
     }
@@ -34,29 +27,41 @@ public class MenuPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jd_login = new javax.swing.JDialog();
+        jd_ventanaLogin = new javax.swing.JDialog();
         jtf_nombreUsuario = new javax.swing.JTextField();
         jtf_contrasenaUsuario = new javax.swing.JPasswordField();
         jb_salirLogin = new javax.swing.JButton();
         jb_login = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jd_ventanaAdmin = new javax.swing.JDialog();
+        jLabel1 = new javax.swing.JLabel();
+        jb_mantenimientoMenuOpciones = new javax.swing.JButton();
+        jb_bitacoraMenuOpciones = new javax.swing.JButton();
+        jb_reportesMenuOpciones = new javax.swing.JButton();
+        jb_salirMenuOpciones = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jd_ventanaMenuMantenimiento = new javax.swing.JDialog();
+        jLabel3 = new javax.swing.JLabel();
+        jb_crearMenuMantenimiento = new javax.swing.JButton();
+        jb_modificarMenuMantenimiento = new javax.swing.JButton();
+        jb_eliminarMenuMantemiento = new javax.swing.JButton();
+        jb_salirMenuMantenimiento = new javax.swing.JButton();
+        jd_ventanaCrear = new javax.swing.JDialog();
         jb_imagenCarroMenuPrincipal = new javax.swing.JLabel();
         jb_distribuidoresMenuPrincipal = new javax.swing.JButton();
         jb_productosMenuPrincipal = new javax.swing.JButton();
         jb_preciosMenuPrincipal = new javax.swing.JButton();
         jb_inventarioMenuPrincipal = new javax.swing.JButton();
-        jToolBar1 = new javax.swing.JToolBar();
         jb_ingresarMenuPrincipal = new javax.swing.JButton();
 
-        jd_login.setTitle("Acceso al Sistema");
-        jd_login.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jd_ventanaLogin.setTitle("Acceso al Sistema");
+        jd_ventanaLogin.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jtf_nombreUsuario.setFont(new java.awt.Font("Calibri Light", 0, 14)); // NOI18N
         jtf_nombreUsuario.setText("Nombre del usuario");
         jtf_nombreUsuario.setToolTipText("");
-        jd_login.getContentPane().add(jtf_nombreUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 180, 240, 40));
-        jd_login.getContentPane().add(jtf_contrasenaUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 250, 240, 40));
+        jd_ventanaLogin.getContentPane().add(jtf_nombreUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 180, 240, 40));
+        jd_ventanaLogin.getContentPane().add(jtf_contrasenaUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 250, 240, 40));
 
         jb_salirLogin.setFont(new java.awt.Font("Calibri Light", 1, 18)); // NOI18N
         jb_salirLogin.setText("SALIR");
@@ -65,7 +70,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 jb_salirLoginMouseClicked(evt);
             }
         });
-        jd_login.getContentPane().add(jb_salirLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 370, 100, 40));
+        jd_ventanaLogin.getContentPane().add(jb_salirLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 370, 100, 40));
 
         jb_login.setFont(new java.awt.Font("Calibri Light", 1, 18)); // NOI18N
         jb_login.setText("LOGIN");
@@ -74,20 +79,134 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 jb_loginMouseClicked(evt);
             }
         });
-        jd_login.getContentPane().add(jb_login, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 370, 100, 40));
+        jd_ventanaLogin.getContentPane().add(jb_login, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 370, 100, 40));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Login 2.png"))); // NOI18N
-        jd_login.getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 3, -1, 470));
+        jd_ventanaLogin.getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 3, -1, 470));
+
+        jd_ventanaAdmin.setTitle("Menú de opciones");
+
+        jLabel1.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jLabel1.setText("Menú de Opciones");
+
+        jb_mantenimientoMenuOpciones.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        jb_mantenimientoMenuOpciones.setText("Mantenimiento de tablas base");
+        jb_mantenimientoMenuOpciones.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_mantenimientoMenuOpcionesMouseClicked(evt);
+            }
+        });
+
+        jb_bitacoraMenuOpciones.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        jb_bitacoraMenuOpciones.setText("Bitácora");
+
+        jb_reportesMenuOpciones.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        jb_reportesMenuOpciones.setText("Reportes");
+
+        jb_salirMenuOpciones.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        jb_salirMenuOpciones.setText("Salir");
+        jb_salirMenuOpciones.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_salirMenuOpcionesMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jd_ventanaAdminLayout = new javax.swing.GroupLayout(jd_ventanaAdmin.getContentPane());
         jd_ventanaAdmin.getContentPane().setLayout(jd_ventanaAdminLayout);
         jd_ventanaAdminLayout.setHorizontalGroup(
             jd_ventanaAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 525, Short.MAX_VALUE)
+            .addGroup(jd_ventanaAdminLayout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addGroup(jd_ventanaAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(jb_salirMenuOpciones)
+                    .addComponent(jb_mantenimientoMenuOpciones)
+                    .addComponent(jb_bitacoraMenuOpciones)
+                    .addComponent(jb_reportesMenuOpciones)
+                    .addComponent(jLabel1))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
         jd_ventanaAdminLayout.setVerticalGroup(
             jd_ventanaAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 373, Short.MAX_VALUE)
+            .addGroup(jd_ventanaAdminLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addGap(43, 43, 43)
+                .addComponent(jb_mantenimientoMenuOpciones)
+                .addGap(36, 36, 36)
+                .addComponent(jb_bitacoraMenuOpciones)
+                .addGap(45, 45, 45)
+                .addComponent(jb_reportesMenuOpciones)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                .addComponent(jb_salirMenuOpciones)
+                .addContainerGap())
+        );
+
+        jButton1.setText("jButton1");
+
+        jLabel3.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jLabel3.setText("Menú Mantenimiento");
+
+        jb_crearMenuMantenimiento.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        jb_crearMenuMantenimiento.setText("Crear");
+        jb_crearMenuMantenimiento.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_crearMenuMantenimientoMouseClicked(evt);
+            }
+        });
+
+        jb_modificarMenuMantenimiento.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        jb_modificarMenuMantenimiento.setText("Modificar");
+
+        jb_eliminarMenuMantemiento.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        jb_eliminarMenuMantemiento.setText("Eliminar");
+
+        jb_salirMenuMantenimiento.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        jb_salirMenuMantenimiento.setText("Salir");
+        jb_salirMenuMantenimiento.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_salirMenuMantenimientoMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jd_ventanaMenuMantenimientoLayout = new javax.swing.GroupLayout(jd_ventanaMenuMantenimiento.getContentPane());
+        jd_ventanaMenuMantenimiento.getContentPane().setLayout(jd_ventanaMenuMantenimientoLayout);
+        jd_ventanaMenuMantenimientoLayout.setHorizontalGroup(
+            jd_ventanaMenuMantenimientoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_ventanaMenuMantenimientoLayout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addGroup(jd_ventanaMenuMantenimientoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(jb_salirMenuMantenimiento)
+                    .addComponent(jb_crearMenuMantenimiento)
+                    .addComponent(jb_modificarMenuMantenimiento)
+                    .addComponent(jb_eliminarMenuMantemiento)
+                    .addComponent(jLabel3))
+                .addContainerGap(33, Short.MAX_VALUE))
+        );
+        jd_ventanaMenuMantenimientoLayout.setVerticalGroup(
+            jd_ventanaMenuMantenimientoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_ventanaMenuMantenimientoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel3)
+                .addGap(18, 18, 18)
+                .addComponent(jb_crearMenuMantenimiento)
+                .addGap(49, 49, 49)
+                .addComponent(jb_modificarMenuMantenimiento)
+                .addGap(49, 49, 49)
+                .addComponent(jb_eliminarMenuMantemiento)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addComponent(jb_salirMenuMantenimiento)
+                .addGap(19, 19, 19))
+        );
+
+        javax.swing.GroupLayout jd_ventanaCrearLayout = new javax.swing.GroupLayout(jd_ventanaCrear.getContentPane());
+        jd_ventanaCrear.getContentPane().setLayout(jd_ventanaCrearLayout);
+        jd_ventanaCrearLayout.setHorizontalGroup(
+            jd_ventanaCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jd_ventanaCrearLayout.setVerticalGroup(
+            jd_ventanaCrearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -103,25 +222,18 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         jb_inventarioMenuPrincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Inventario otro.png"))); // NOI18N
 
-        jToolBar1.setRollover(true);
-
-        jb_ingresarMenuPrincipal.setFont(new java.awt.Font("Calibri Light", 0, 14)); // NOI18N
+        jb_ingresarMenuPrincipal.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         jb_ingresarMenuPrincipal.setText("Ingresar");
-        jb_ingresarMenuPrincipal.setFocusable(false);
-        jb_ingresarMenuPrincipal.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jb_ingresarMenuPrincipal.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jb_ingresarMenuPrincipal.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jb_ingresarMenuPrincipalActionPerformed(evt);
+        jb_ingresarMenuPrincipal.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_ingresarMenuPrincipalMouseClicked(evt);
             }
         });
-        jToolBar1.add(jb_ingresarMenuPrincipal);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -132,12 +244,15 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jb_imagenCarroMenuPrincipal)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jb_ingresarMenuPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
+                .addComponent(jb_ingresarMenuPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jb_imagenCarroMenuPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
@@ -153,15 +268,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-
-    private void jb_ingresarMenuPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_ingresarMenuPrincipalActionPerformed
-        jd_login.pack();
-        jd_login.setModal(true);
-        jd_login.setLocationRelativeTo(this);
-        jd_login.setVisible(true);
-        //Agregar algo para que se cierre el menu principal y se puede cerrar todo el programa
-    }//GEN-LAST:event_jb_ingresarMenuPrincipalActionPerformed
 
     public boolean validarEspacio() {
         boolean condicion = false;
@@ -183,7 +289,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 jd_ventanaAdmin.pack();
                 jd_ventanaAdmin.setModal(true);
                 jd_ventanaAdmin.setLocationRelativeTo(this);
-                jd_login.setVisible(false);
+                jd_ventanaLogin.setVisible(false);
                 //this.setVisible(false);
                 jd_ventanaAdmin.setVisible(true);
             } else if (jtf_nombreUsuario.getText().equalsIgnoreCase("servicio de localizacion") && contrasena.equalsIgnoreCase("456")) {
@@ -197,9 +303,40 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jb_loginMouseClicked
 
     private void jb_salirLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_salirLoginMouseClicked
-        jd_login.setVisible(false);
+        jd_ventanaLogin.setVisible(false);
         this.setVisible(true);
     }//GEN-LAST:event_jb_salirLoginMouseClicked
+
+    private void jb_mantenimientoMenuOpcionesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_mantenimientoMenuOpcionesMouseClicked
+        jd_ventanaMenuMantenimiento.pack();
+        jd_ventanaMenuMantenimiento.setModal(true);
+        jd_ventanaMenuMantenimiento.setLocationRelativeTo(this);
+        jd_ventanaMenuMantenimiento.setVisible(true);
+        jd_ventanaAdmin.setVisible(false);
+    }//GEN-LAST:event_jb_mantenimientoMenuOpcionesMouseClicked
+
+    private void jb_ingresarMenuPrincipalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_ingresarMenuPrincipalMouseClicked
+        jd_ventanaLogin.pack();
+        jd_ventanaLogin.setModal(true);
+        jd_ventanaLogin.setLocationRelativeTo(this);
+        jd_ventanaLogin.setVisible(true);
+    }//GEN-LAST:event_jb_ingresarMenuPrincipalMouseClicked
+
+    private void jb_salirMenuMantenimientoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_salirMenuMantenimientoMouseClicked
+        jd_ventanaMenuMantenimiento.setVisible(false);
+    }//GEN-LAST:event_jb_salirMenuMantenimientoMouseClicked
+
+    private void jb_salirMenuOpcionesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_salirMenuOpcionesMouseClicked
+        jd_ventanaAdmin.setVisible(false);
+    }//GEN-LAST:event_jb_salirMenuOpcionesMouseClicked
+
+    private void jb_crearMenuMantenimientoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_crearMenuMantenimientoMouseClicked
+        jd_ventanaCrear.pack();
+        jd_ventanaCrear.setModal(true);
+        jd_ventanaCrear.setLocationRelativeTo(this);
+        jd_ventanaCrear.setVisible(true);
+        jd_ventanaMenuMantenimiento.setVisible(false);
+    }//GEN-LAST:event_jb_crearMenuMantenimientoMouseClicked
 
     /**
      * @param args the command line arguments
@@ -246,18 +383,30 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JToolBar jToolBar1;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JButton jb_bitacoraMenuOpciones;
+    private javax.swing.JButton jb_crearMenuMantenimiento;
     private javax.swing.JButton jb_distribuidoresMenuPrincipal;
+    private javax.swing.JButton jb_eliminarMenuMantemiento;
     private javax.swing.JLabel jb_imagenCarroMenuPrincipal;
     private javax.swing.JButton jb_ingresarMenuPrincipal;
     private javax.swing.JButton jb_inventarioMenuPrincipal;
     private javax.swing.JButton jb_login;
+    private javax.swing.JButton jb_mantenimientoMenuOpciones;
+    private javax.swing.JButton jb_modificarMenuMantenimiento;
     private javax.swing.JButton jb_preciosMenuPrincipal;
     private javax.swing.JButton jb_productosMenuPrincipal;
+    private javax.swing.JButton jb_reportesMenuOpciones;
     private javax.swing.JButton jb_salirLogin;
-    private javax.swing.JDialog jd_login;
+    private javax.swing.JButton jb_salirMenuMantenimiento;
+    private javax.swing.JButton jb_salirMenuOpciones;
     private javax.swing.JDialog jd_ventanaAdmin;
+    private javax.swing.JDialog jd_ventanaCrear;
+    private javax.swing.JDialog jd_ventanaLogin;
+    private javax.swing.JDialog jd_ventanaMenuMantenimiento;
     private javax.swing.JPasswordField jtf_contrasenaUsuario;
     private javax.swing.JTextField jtf_nombreUsuario;
     // End of variables declaration//GEN-END:variables
