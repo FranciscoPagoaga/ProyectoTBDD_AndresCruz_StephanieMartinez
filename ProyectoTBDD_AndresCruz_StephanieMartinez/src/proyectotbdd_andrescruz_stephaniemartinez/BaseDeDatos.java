@@ -125,7 +125,8 @@ public class BaseDeDatos {
         return resultado;
     }//Fin del método de insert en la tabla Proveedor
 
-    public int procedimientoInsertarVehiculo(String vinVehiculo, String modeloVehiculo, String tipoCarroceria, String tipoMotor, String colorVehiculo, String transmisionVehiculo, Date fechaEnsamblaje, float precioVehiculo, String idCompaniaVehiculo) {
+    public int procedimientoInsertarVehiculo(String vinVehiculo, String modeloVehiculo, String tipoCarroceria, String tipoMotor, String colorVehiculo,
+            String transmisionVehiculo, Date fechaEnsamblaje, float precioVehiculo, String idCompaniaVehiculo) {
         int resultado = 0;
         try {
             // se crea instancia a procedimiento, los parametros de entrada y salida se simbolizan con el signo ?
@@ -154,7 +155,7 @@ public class BaseDeDatos {
         int resultado = 0;
         try {
             // se crea instancia a procedimiento, los parametros de entrada y salida se simbolizan con el signo ?
-            procedimiento = coneccion.prepareCall(" CALL PAIVenta(?,?,?,?,?) ");
+            procedimiento = coneccion.prepareCall(" CALL PAIVenta(?,?,?,?,?,?,?,?,?) ");
             //se cargan los parametros de entrada
             procedimiento.setString("rtnConcesionarioVenta", rtnConcesionarioVenta);
             procedimiento.setString("rtnClienteVenta", rtnClienteVenta);
@@ -170,4 +171,125 @@ public class BaseDeDatos {
         }
         return resultado;
     }//Fin del método de insert en la tabla Venta
+
+    public int procedimientoEliminarCliente(String rtnCliente) {
+        int resultado = 0;
+        try {
+            // se crea instancia a procedimiento, los parametros de entrada y salida se simbolizan con el signo ?
+            procedimiento = coneccion.prepareCall(" CALL PADCliente(?) ");
+            //se cargan los parametros de entrada
+            procedimiento.setString("idCompania", rtnCliente);
+            // Se ejecuta el procedimiento almacenado
+            procedimiento.execute();
+            // devuelve el valor del parametro de salida del procedimiento
+            resultado = procedimiento.getInt("condicion");
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return resultado;
+    }//Fin del método de delete en la tabla Cliente
+
+    public int procedimientoEliminarCompania(String idCompania) {
+        int resultado = 0;
+        try {
+            // se crea instancia a procedimiento, los parametros de entrada y salida se simbolizan con el signo ?
+            procedimiento = coneccion.prepareCall(" CALL PADCompania(?) ");
+            //se cargan los parametros de entrada
+            procedimiento.setString("idCompania", idCompania);
+            // Se ejecuta el procedimiento almacenado
+            procedimiento.execute();
+            // devuelve el valor del parametro de salida del procedimiento
+            resultado = procedimiento.getInt("condicion");
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return resultado;
+    }//Fin del método de delete en la tabla Compania
+
+    public int procedimientoEliminarConcesionario(String rtnConcesionario) {
+        int resultado = 0;
+        try {
+            // se crea instancia a procedimiento, los parametros de entrada y salida se simbolizan con el signo ?
+            procedimiento = coneccion.prepareCall(" CALL PADConcesionario(?) ");
+            //se cargan los parametros de entrada
+            procedimiento.setString("rtnConcesionario", rtnConcesionario);
+            // Se ejecuta el procedimiento almacenado
+            procedimiento.execute();
+            // devuelve el valor del parametro de salida del procedimiento
+            resultado = procedimiento.getInt("condicion");
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return resultado;
+    }//Fin del método de delete en la tabla Concesionario
+
+    public int procedimientoEliminarPlanta(String idPlanta) {
+        int resultado = 0;
+        try {
+            // se crea instancia a procedimiento, los parametros de entrada y salida se simbolizan con el signo ?
+            procedimiento = coneccion.prepareCall(" CALL PADPlanta(?) ");
+            //se cargan los parametros de entrada
+            procedimiento.setString("idPlanta", idPlanta);
+            // Se ejecuta el procedimiento almacenado
+            procedimiento.execute();
+            // devuelve el valor del parametro de salida del procedimiento
+            resultado = procedimiento.getInt("condicion");
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return resultado;
+    }//Fin del método de delete en la tabla Planta
+
+    public int procedimientoEliminarProveedor(String idProveedor) {
+        int resultado = 0;
+        try {
+            // se crea instancia a procedimiento, los parametros de entrada y salida se simbolizan con el signo ?
+            procedimiento = coneccion.prepareCall(" CALL PADProveedor(?) ");
+            //se cargan los parametros de entrada
+            procedimiento.setString("idProveedor", idProveedor);
+            // Se ejecuta el procedimiento almacenado
+            procedimiento.execute();
+            // devuelve el valor del parametro de salida del procedimiento
+            resultado = procedimiento.getInt("condicion");
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return resultado;
+    }//Fin del método de delete en la tabla Proveedor
+
+    public int procedimientoEliminarVehiculo(String vinVehiculo) {
+        int resultado = 0;
+        try {
+            // se crea instancia a procedimiento, los parametros de entrada y salida se simbolizan con el signo ?
+            procedimiento = coneccion.prepareCall(" CALL PADVehiculo(?) ");
+            //se cargan los parametros de entrada
+            procedimiento.setString("vinVehiculo", vinVehiculo);
+            // Se ejecuta el procedimiento almacenado
+            procedimiento.execute();
+            // devuelve el valor del parametro de salida del procedimiento
+            resultado = procedimiento.getInt("condicion");
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return resultado;
+    }//Fin del método de delete en la tabla Vehiculo
+
+    public int procedimientoEliminarVenta(String rtnConcesionario, String rtnClienteVenta, String vinVenta) {
+        int resultado = 0;
+        try {
+            // se crea instancia a procedimiento, los parametros de entrada y salida se simbolizan con el signo ?
+            procedimiento = coneccion.prepareCall(" CALL PADVenta(?,?,?) ");
+            //se cargan los parametros de entrada
+            procedimiento.setString("rtnConcesionario", rtnConcesionario);
+            procedimiento.setString("rtnClienteVenta", rtnClienteVenta);
+            procedimiento.setString("vinVenta", vinVenta);
+            // Se ejecuta el procedimiento almacenado
+            procedimiento.execute();
+            // devuelve el valor del parametro de salida del procedimiento
+            resultado = procedimiento.getInt("condicion");
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return resultado;
+    }//Fin del método de delete en la tabla Venta
 }
