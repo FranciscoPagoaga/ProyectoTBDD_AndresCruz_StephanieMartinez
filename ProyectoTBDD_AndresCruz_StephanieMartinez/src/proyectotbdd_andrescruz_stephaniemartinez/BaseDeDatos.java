@@ -482,4 +482,28 @@ public class BaseDeDatos {
             idCompania.addItem(rs.getString("idComp"));
         }
     }
+    
+    public void cargarCBConcesionario(JComboBox rtnConcesionarioVenta) throws SQLException {
+        stm = conexion.createStatement();
+        ResultSet rs = stm.executeQuery("select * from tblConcesionario");
+        while (rs.next()) {
+            rtnConcesionarioVenta.addItem(rs.getString("rtnConc"));
+        }
+    }
+    
+    public void cargarCBCliente(JComboBox rtnClienteVenta) throws SQLException {
+        stm = conexion.createStatement();
+        ResultSet rs = stm.executeQuery("select * from tblCliente");
+        while (rs.next()) {
+            rtnClienteVenta.addItem(rs.getString("rtnClie"));
+        }
+    }
+    
+    public void cargarCBVin(JComboBox vinVenta) throws SQLException {
+        stm = conexion.createStatement();
+        ResultSet rs = stm.executeQuery("select * from tblVehiculo");
+        while (rs.next()) {
+            vinVenta.addItem(rs.getString("vin"));
+        }
+    }
 }
