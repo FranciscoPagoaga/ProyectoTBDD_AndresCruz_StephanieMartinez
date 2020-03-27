@@ -541,16 +541,16 @@ public class BaseDeDatos {
     public void defectuoso(String idProveedor, Date fechaInicio, Date fechaFinal, JTable tabla) {
         try {
             // se crea instancia a procedimiento, los parametros de entrada y salida se simbolizan con el signo ?
-            sp =  conexion.prepareCall("{call PDefectuoso(?,?,?) }");
+            sp = conexion.prepareCall("{call PDefectuoso(?,?,?) }");
             //se cargan los parametros de entrada
             sp.setString(1, idProveedor);
             sp.setDate(2, fechaInicio);
             sp.setDate(3, fechaFinal);
             // Se ejecuta el procedimiento almacenado
-            sp.execute();
+            ResultSet rs;
+            rs = sp.executeQuery();
             DefaultTableModel modelo = new DefaultTableModel();
             try {
-                ResultSet rs = null;
                 String[] registros = new String[2];
                 modelo.setColumnIdentifiers(new Object[]{"VIN", "RTN del Cliente", "Nombre del Cliente"});
                 while (rs.next()) {
