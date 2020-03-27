@@ -17,19 +17,19 @@ import javax.swing.WindowConstants;
 import javax.swing.table.DefaultTableModel;
 
 public class MenuPrincipal extends javax.swing.JFrame {
-
+    
     Connection conexion;
     Statement stm;
     int condicionCrearModificar = 0;
     BaseDeDatos db = new BaseDeDatos();
-
+    
     public MenuPrincipal() throws ClassNotFoundException, SQLException {
         initComponents();
         this.setLocationRelativeTo(null);
         //jd_ventanaAdmin.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         //ventana.setVisible(true);
     }
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -385,11 +385,25 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jScrollPane6 = new javax.swing.JScrollPane();
         jt_distribuidoresReporte = new javax.swing.JTable();
         jButton7 = new javax.swing.JButton();
+        jd_ventanaDistribuidoresUsuario = new javax.swing.JDialog();
+        jLabel70 = new javax.swing.JLabel();
+        jScrollPane8 = new javax.swing.JScrollPane();
+        jt_distribuidoresCliente = new javax.swing.JTable();
+        jb_salirDistribuidoresCliente = new javax.swing.JButton();
+        jd_ventanaProductosUsuario = new javax.swing.JDialog();
+        jLabel72 = new javax.swing.JLabel();
+        jScrollPane9 = new javax.swing.JScrollPane();
+        jt_vehiculosCliente = new javax.swing.JTable();
+        jb_salirVehiculosCliente = new javax.swing.JButton();
+        jd_precioCliente = new javax.swing.JDialog();
+        jLabel73 = new javax.swing.JLabel();
+        jScrollPane10 = new javax.swing.JScrollPane();
+        jt_precioCliente = new javax.swing.JTable();
+        jButton10 = new javax.swing.JButton();
         jb_imagenCarroMenuPrincipal = new javax.swing.JLabel();
         jb_distribuidoresMenuPrincipal = new javax.swing.JButton();
         jb_productosMenuPrincipal = new javax.swing.JButton();
         jb_preciosMenuPrincipal = new javax.swing.JButton();
-        jb_inventarioMenuPrincipal = new javax.swing.JButton();
         jb_ingresarMenuPrincipal = new javax.swing.JButton();
 
         jd_ventanaLogin.setTitle("Acceso al Sistema");
@@ -3544,18 +3558,195 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 .addGap(0, 9, Short.MAX_VALUE))
         );
 
+        jd_ventanaDistribuidoresUsuario.setTitle("Distribuidores");
+
+        jLabel70.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
+        jLabel70.setForeground(new java.awt.Color(0, 102, 204));
+        jLabel70.setText("Distribuidores");
+
+        jt_distribuidoresCliente.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        jt_distribuidoresCliente.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "", ""
+            }
+        ));
+        jScrollPane8.setViewportView(jt_distribuidoresCliente);
+
+        jb_salirDistribuidoresCliente.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        jb_salirDistribuidoresCliente.setText("Salir");
+        jb_salirDistribuidoresCliente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_salirDistribuidoresClienteMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jd_ventanaDistribuidoresUsuarioLayout = new javax.swing.GroupLayout(jd_ventanaDistribuidoresUsuario.getContentPane());
+        jd_ventanaDistribuidoresUsuario.getContentPane().setLayout(jd_ventanaDistribuidoresUsuarioLayout);
+        jd_ventanaDistribuidoresUsuarioLayout.setHorizontalGroup(
+            jd_ventanaDistribuidoresUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_ventanaDistribuidoresUsuarioLayout.createSequentialGroup()
+                .addContainerGap(23, Short.MAX_VALUE)
+                .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(19, 19, 19))
+            .addGroup(jd_ventanaDistribuidoresUsuarioLayout.createSequentialGroup()
+                .addGap(173, 173, 173)
+                .addGroup(jd_ventanaDistribuidoresUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(jb_salirDistribuidoresCliente)
+                    .addComponent(jLabel70))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jd_ventanaDistribuidoresUsuarioLayout.setVerticalGroup(
+            jd_ventanaDistribuidoresUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_ventanaDistribuidoresUsuarioLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel70)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
+                .addComponent(jb_salirDistribuidoresCliente)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jd_ventanaProductosUsuario.setTitle("Vehículos");
+
+        jLabel72.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
+        jLabel72.setForeground(new java.awt.Color(0, 102, 204));
+        jLabel72.setText("Vehículos");
+
+        jt_vehiculosCliente.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        jt_vehiculosCliente.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "", "", "", "", "", ""
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane9.setViewportView(jt_vehiculosCliente);
+
+        jb_salirVehiculosCliente.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        jb_salirVehiculosCliente.setText("Salir");
+        jb_salirVehiculosCliente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_salirVehiculosClienteMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jd_ventanaProductosUsuarioLayout = new javax.swing.GroupLayout(jd_ventanaProductosUsuario.getContentPane());
+        jd_ventanaProductosUsuario.getContentPane().setLayout(jd_ventanaProductosUsuarioLayout);
+        jd_ventanaProductosUsuarioLayout.setHorizontalGroup(
+            jd_ventanaProductosUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 827, Short.MAX_VALUE)
+            .addGroup(jd_ventanaProductosUsuarioLayout.createSequentialGroup()
+                .addGroup(jd_ventanaProductosUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_ventanaProductosUsuarioLayout.createSequentialGroup()
+                        .addGap(340, 340, 340)
+                        .addComponent(jLabel72))
+                    .addGroup(jd_ventanaProductosUsuarioLayout.createSequentialGroup()
+                        .addGap(367, 367, 367)
+                        .addComponent(jb_salirVehiculosCliente)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jd_ventanaProductosUsuarioLayout.setVerticalGroup(
+            jd_ventanaProductosUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_ventanaProductosUsuarioLayout.createSequentialGroup()
+                .addGap(6, 6, 6)
+                .addComponent(jLabel72, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jb_salirVehiculosCliente)
+                .addGap(17, 17, 17))
+        );
+
+        jd_precioCliente.setTitle("Precios");
+
+        jLabel73.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
+        jLabel73.setForeground(new java.awt.Color(0, 102, 204));
+        jLabel73.setText("Precios");
+
+        jt_precioCliente.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        jt_precioCliente.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "", ""
+            }
+        ));
+        jScrollPane10.setViewportView(jt_precioCliente);
+
+        jButton10.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        jButton10.setText("Salir");
+        jButton10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton10MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jd_precioClienteLayout = new javax.swing.GroupLayout(jd_precioCliente.getContentPane());
+        jd_precioCliente.getContentPane().setLayout(jd_precioClienteLayout);
+        jd_precioClienteLayout.setHorizontalGroup(
+            jd_precioClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane10, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+            .addGroup(jd_precioClienteLayout.createSequentialGroup()
+                .addGroup(jd_precioClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_precioClienteLayout.createSequentialGroup()
+                        .addGap(174, 174, 174)
+                        .addComponent(jButton10))
+                    .addGroup(jd_precioClienteLayout.createSequentialGroup()
+                        .addGap(157, 157, 157)
+                        .addComponent(jLabel73)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jd_precioClienteLayout.setVerticalGroup(
+            jd_precioClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_precioClienteLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel73)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton10)
+                .addGap(41, 41, 41))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Menú Cliente");
 
         jb_imagenCarroMenuPrincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Carro final 5.png"))); // NOI18N
 
         jb_distribuidoresMenuPrincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Distribuidores otro.png"))); // NOI18N
+        jb_distribuidoresMenuPrincipal.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_distribuidoresMenuPrincipalMouseClicked(evt);
+            }
+        });
 
         jb_productosMenuPrincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Productos otro.png"))); // NOI18N
+        jb_productosMenuPrincipal.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_productosMenuPrincipalMouseClicked(evt);
+            }
+        });
 
         jb_preciosMenuPrincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Precios final.png"))); // NOI18N
-
-        jb_inventarioMenuPrincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Inventario otro.png"))); // NOI18N
+        jb_preciosMenuPrincipal.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_preciosMenuPrincipalMouseClicked(evt);
+            }
+        });
 
         jb_ingresarMenuPrincipal.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         jb_ingresarMenuPrincipal.setText("Ingresar");
@@ -3574,7 +3765,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jb_productosMenuPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jb_preciosMenuPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jb_inventarioMenuPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addComponent(jb_distribuidoresMenuPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addComponent(jb_imagenCarroMenuPrincipal)
@@ -3588,16 +3778,15 @@ public class MenuPrincipal extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jb_ingresarMenuPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jb_imagenCarroMenuPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jb_imagenCarroMenuPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jb_distribuidoresMenuPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jb_productosMenuPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jb_preciosMenuPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jb_inventarioMenuPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(70, 70, 70)))
                 .addContainerGap())
         );
 
@@ -3718,7 +3907,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
             } catch (SQLException ex) {
                 Logger.getLogger(MenuPrincipal.class.getName()).log(Level.SEVERE, null, ex);
             }
-
+            
         }
         if (condicion == 1) {
             JOptionPane.showMessageDialog(this, "Hay valores nulos");
@@ -4321,7 +4510,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
             }
             condicion = db.procedimientoActualizarCliente(rtnCliente, jtf_nombreClienteModificar.getText(), telefono, jtf_direccionClienteModificar.getText(),
                     esCompaniaCondicion, jtf_identidadClienteModificar.getText(), sexo, Integer.parseInt(jtf_ingresoClienteModificar.getText()), 0);
-
+            
         }
         if (condicion == 1) {
             JOptionPane.showMessageDialog(this, "Se ha realizado la operación exitosamente");
@@ -4469,7 +4658,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 registros[3] = rs.getString(4);
                 registros[4] = rs.getString(5);
                 registros[5] = rs.getString(6);
-
+                
                 modelo.addRow(registros);
             }
             jt_tablaBitacora.setModel(modelo);
@@ -4756,11 +4945,94 @@ public class MenuPrincipal extends javax.swing.JFrame {
         db.defectuoso(idProveedor, sInicioDate, sFinalDate, jt_defectuosoReporte);
     }//GEN-LAST:event_jb_aceptarReporteMouseClicked
 
+    private void jb_distribuidoresMenuPrincipalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_distribuidoresMenuPrincipalMouseClicked
+        DefaultTableModel modelo = new DefaultTableModel();
+        try {
+            String[] registros = new String[2];
+            ResultSet rs = db.getTabla("SELECT nombreConc, ubicacionConc FROM tblConcesionario;");
+            modelo.setColumnIdentifiers(new Object[]{"Nombre del concesionario", "Ubicación"});
+            while (rs.next()) {
+                //se añaden los resultados a la tabla
+                registros[0] = rs.getString(1);
+                registros[1] = rs.getString(2);
+                modelo.addRow(registros);
+            }
+            jt_distribuidoresCliente.setModel(modelo);
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        jd_ventanaDistribuidoresUsuario.pack();
+        jd_ventanaDistribuidoresUsuario.setModal(true);
+        jd_ventanaDistribuidoresUsuario.setLocationRelativeTo(this);
+        jd_ventanaDistribuidoresUsuario.setVisible(true);
+    }//GEN-LAST:event_jb_distribuidoresMenuPrincipalMouseClicked
+
+    private void jb_salirDistribuidoresClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_salirDistribuidoresClienteMouseClicked
+        jd_ventanaDistribuidoresUsuario.setVisible(false);
+    }//GEN-LAST:event_jb_salirDistribuidoresClienteMouseClicked
+
+    private void jb_productosMenuPrincipalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_productosMenuPrincipalMouseClicked
+        DefaultTableModel modelo = new DefaultTableModel();
+        try {
+            String[] registros = new String[7];
+            ResultSet rs = db.getTabla("SELECT modeloVehi, tipoCarroceriaVehi, tipoMotorVehi, colorVehi, transmisionVehi, fechaEnsambleVehi, precioVehi FROM tblVehiculo;");
+            modelo.setColumnIdentifiers(new Object[]{"Modelo del vehículo", "Tipo de carrocería", "Tipo de motor", "Color", "Transmisión", "Fecha de ensamble", "Precio"});
+            while (rs.next()) {
+                //se añaden los resultados a la tabla
+                registros[0] = rs.getString(1);
+                registros[1] = rs.getString(2);
+                registros[2] = rs.getString(3);
+                registros[3] = rs.getString(4);
+                registros[4] = rs.getString(5);
+                registros[5] = rs.getString(6);
+                registros[6] = rs.getString(7);
+                modelo.addRow(registros);
+            }
+            jt_vehiculosCliente.setModel(modelo);
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        jd_ventanaProductosUsuario.pack();
+        jd_ventanaProductosUsuario.setModal(true);
+        jd_ventanaProductosUsuario.setLocationRelativeTo(this);
+        jd_ventanaProductosUsuario.setVisible(true);
+    }//GEN-LAST:event_jb_productosMenuPrincipalMouseClicked
+
+    private void jb_salirVehiculosClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_salirVehiculosClienteMouseClicked
+        jd_ventanaProductosUsuario.setVisible(false);
+    }//GEN-LAST:event_jb_salirVehiculosClienteMouseClicked
+
+    private void jb_preciosMenuPrincipalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_preciosMenuPrincipalMouseClicked
+        DefaultTableModel modelo = new DefaultTableModel();
+        try {
+            String[] registros = new String[2];
+            ResultSet rs = db.getTabla("SELECT modeloVehi, precioVehi FROM tblVehiculo;");
+            modelo.setColumnIdentifiers(new Object[]{"Modelo del vehículo", "Precio"});
+            while (rs.next()) {
+                //se añaden los resultados a la tabla
+                registros[0] = rs.getString(1);
+                registros[1] = rs.getString(2);
+                modelo.addRow(registros);
+            }
+            jt_precioCliente.setModel(modelo);
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        jd_precioCliente.pack();
+        jd_precioCliente.setModal(true);
+        jd_precioCliente.setLocationRelativeTo(this);
+        jd_precioCliente.setVisible(true);
+    }//GEN-LAST:event_jb_preciosMenuPrincipalMouseClicked
+
+    private void jButton10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton10MouseClicked
+        jd_precioCliente.setVisible(false);     
+    }//GEN-LAST:event_jButton10MouseClicked
+    
     private static java.sql.Date convertUtilToSql(java.util.Date uDate) {
         java.sql.Date sDate = new java.sql.Date(uDate.getTime());
         return sDate;
     }
-
+    
     public void limpiarEspaciosTablaCliente() {
         jtf_rtnCliente.setText("");
         jtf_nombreCliente.setText("");
@@ -4819,6 +5091,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -4920,7 +5193,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel68;
     private javax.swing.JLabel jLabel69;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel70;
     private javax.swing.JLabel jLabel71;
+    private javax.swing.JLabel jLabel72;
+    private javax.swing.JLabel jLabel73;
     private javax.swing.JLabel jLabel78;
     private javax.swing.JLabel jLabel79;
     private javax.swing.JLabel jLabel8;
@@ -4946,12 +5222,15 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel98;
     private javax.swing.JLabel jLabel99;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JScrollPane jScrollPane8;
+    private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JButton jb_aceptarEliminarCliente;
     private javax.swing.JButton jb_aceptarEliminarCompania;
     private javax.swing.JButton jb_aceptarEliminarConcesionario;
@@ -4988,7 +5267,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jb_guardarVentaModificar;
     private javax.swing.JLabel jb_imagenCarroMenuPrincipal;
     private javax.swing.JButton jb_ingresarMenuPrincipal;
-    private javax.swing.JButton jb_inventarioMenuPrincipal;
     private javax.swing.JButton jb_login;
     private javax.swing.JButton jb_mantenimientoMenuOpciones;
     private javax.swing.JButton jb_marcasReporte;
@@ -5010,6 +5288,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jb_salirCompaniaModificar;
     private javax.swing.JButton jb_salirConcesionarioModificar;
     private javax.swing.JButton jb_salirDefectuoso;
+    private javax.swing.JButton jb_salirDistribuidoresCliente;
     private javax.swing.JButton jb_salirEliminarCliente;
     private javax.swing.JButton jb_salirEliminarConcesionario;
     private javax.swing.JButton jb_salirEliminarPlanta;
@@ -5030,6 +5309,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jb_salirTendenciaReporte;
     private javax.swing.JButton jb_salirVehiculo;
     private javax.swing.JButton jb_salirVehiculoModificar;
+    private javax.swing.JButton jb_salirVehiculosCliente;
     private javax.swing.JButton jb_salirVenta;
     private javax.swing.JButton jb_salirVentaConvertible;
     private javax.swing.JButton jb_salirVentaModificar;
@@ -5080,12 +5360,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JDialog jd_mejoresMarcasUnidadReporte;
     private javax.swing.JDialog jd_menuReportes;
     private javax.swing.JDialog jd_modificarTablas;
+    private javax.swing.JDialog jd_precioCliente;
     private javax.swing.JDialog jd_tendenciasReporteMenu;
     private javax.swing.JDialog jd_ventaConvertibleReporte;
     private javax.swing.JDialog jd_ventanaAdmin;
     private javax.swing.JDialog jd_ventanaCliente;
     private javax.swing.JDialog jd_ventanaCompania;
     private javax.swing.JDialog jd_ventanaConcesionario;
+    private javax.swing.JDialog jd_ventanaDistribuidoresUsuario;
     private javax.swing.JDialog jd_ventanaEliminarCliente;
     private javax.swing.JDialog jd_ventanaEliminarCompania;
     private javax.swing.JDialog jd_ventanaEliminarConcesionario;
@@ -5103,6 +5385,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JDialog jd_ventanaModificarVehiculo;
     private javax.swing.JDialog jd_ventanaModificarVenta;
     private javax.swing.JDialog jd_ventanaPlanta;
+    private javax.swing.JDialog jd_ventanaProductosUsuario;
     private javax.swing.JDialog jd_ventanaProveedor;
     private javax.swing.JDialog jd_ventanaVehiculo;
     private javax.swing.JDialog jd_ventanaVenta;
@@ -5113,11 +5396,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private com.toedter.calendar.JDateChooser jdc_fechaVenta;
     private com.toedter.calendar.JDateChooser jdc_fechaVentaModificar;
     private javax.swing.JTable jt_defectuosoReporte;
+    private javax.swing.JTable jt_distribuidoresCliente;
     private javax.swing.JTable jt_distribuidoresReporte;
     private javax.swing.JTable jt_mejoresMarcasReportes;
     private javax.swing.JTable jt_mejoresMarcasUnidadReporte;
+    private javax.swing.JTable jt_precioCliente;
     private javax.swing.JTable jt_tablaBitacora;
     private javax.swing.JTable jt_tendenciasReporte;
+    private javax.swing.JTable jt_vehiculosCliente;
     private javax.swing.JTable jt_ventaConvertibleReporte;
     private javax.swing.JTextField jtf_carroceriaVehiculo;
     private javax.swing.JTextField jtf_carroceriaVehiculoModificar;
