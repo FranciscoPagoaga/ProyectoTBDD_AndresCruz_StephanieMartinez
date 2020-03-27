@@ -171,7 +171,7 @@ public class BaseDeDatos {
         return resultado;
     }//Fin del método de insert en la tabla Vehiculo
 
-    public int procedimientoInsertarVenta(String rtnConcesionarioVenta, String rtnClienteVenta, String vinVenta, String tipoMotor, String colorVehiculo, String transmisionVehiculo, Date fechaVenta, float precioVenta, String idCompaniaVehiculo) {
+    public int procedimientoInsertarVenta(String rtnConcesionarioVenta, String rtnClienteVenta, String vinVenta, float precioVenta, Date fechaVenta){
         int resultado = 0;
         try {
             // se crea instancia a procedimiento, los parametros de entrada y salida se simbolizan con el signo ?
@@ -181,8 +181,8 @@ public class BaseDeDatos {
             sp.setString(2, rtnConcesionarioVenta);
             sp.setString(3, rtnClienteVenta);
             sp.setString(4, vinVenta);
-            sp.setDate(5, fechaVenta);
-            sp.setFloat(6, precioVenta);
+            sp.setFloat(5, precioVenta);
+            sp.setDate(6, fechaVenta);
             // Se ejecuta el procedimiento almacenado
             sp.execute();
             // devuelve el valor del parametro de salida del procedimiento
@@ -475,14 +475,14 @@ public class BaseDeDatos {
         return resultado;
     }//Fin del método de update en la tabla Venta
 
-    public void cargarCB(JComboBox idCompania) throws SQLException {
+    public void cargarCBCompania(JComboBox idCompania) throws SQLException {
         stm = conexion.createStatement();
         ResultSet rs = stm.executeQuery("select * from tblCompania");
         while (rs.next()) {
             idCompania.addItem(rs.getString("idComp"));
         }
     }
-    
+
     public void cargarCBConcesionario(JComboBox rtnConcesionarioVenta) throws SQLException {
         stm = conexion.createStatement();
         ResultSet rs = stm.executeQuery("select * from tblConcesionario");
@@ -490,7 +490,7 @@ public class BaseDeDatos {
             rtnConcesionarioVenta.addItem(rs.getString("rtnConc"));
         }
     }
-    
+
     public void cargarCBCliente(JComboBox rtnClienteVenta) throws SQLException {
         stm = conexion.createStatement();
         ResultSet rs = stm.executeQuery("select * from tblCliente");
@@ -498,12 +498,28 @@ public class BaseDeDatos {
             rtnClienteVenta.addItem(rs.getString("rtnClie"));
         }
     }
-    
+
     public void cargarCBVin(JComboBox vinVenta) throws SQLException {
         stm = conexion.createStatement();
         ResultSet rs = stm.executeQuery("select * from tblVehiculo");
         while (rs.next()) {
             vinVenta.addItem(rs.getString("vin"));
+        }
+    }
+    
+    public void cargarCBPlanta(JComboBox idPlanta) throws SQLException {
+        stm = conexion.createStatement();
+        ResultSet rs = stm.executeQuery("select * from tblPlanta");
+        while (rs.next()) {
+            idPlanta.addItem(rs.getString("idPlan"));
+        }
+    }
+    
+    public void cargarCBProveedor(JComboBox idProveedor) throws SQLException {
+        stm = conexion.createStatement();
+        ResultSet rs = stm.executeQuery("select * from tblProveedor");
+        while (rs.next()) {
+            idProveedor.addItem(rs.getString("idProv"));
         }
     }
 }

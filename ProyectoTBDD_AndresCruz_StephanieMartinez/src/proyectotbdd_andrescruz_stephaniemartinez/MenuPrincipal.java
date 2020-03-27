@@ -7,8 +7,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ComboBoxModel;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.WindowConstants;
 
@@ -158,11 +161,87 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jLabel49 = new javax.swing.JLabel();
         jb_guardarVenta = new javax.swing.JButton();
         jb_salirVenta = new javax.swing.JButton();
-        jtf_fechaVenta = new javax.swing.JTextField();
         jtf_precioVenta = new javax.swing.JTextField();
         jcb_rtnConcesionarioVenta = new javax.swing.JComboBox<>();
         jcb_rtnClienteVenta = new javax.swing.JComboBox<>();
         jcb_vinVenta = new javax.swing.JComboBox<>();
+        jdc_fechaVenta = new com.toedter.calendar.JDateChooser();
+        jd_eliminarTablas = new javax.swing.JDialog();
+        jLabel53 = new javax.swing.JLabel();
+        jb_clienteMenuTablas1 = new javax.swing.JButton();
+        jb_companiaMenuTablas1 = new javax.swing.JButton();
+        jb_concesionarioMenuTablas1 = new javax.swing.JButton();
+        jb_plantaMenuTablas1 = new javax.swing.JButton();
+        jb_ventaMenuTablas1 = new javax.swing.JButton();
+        jb_vehiculoMenuTablas1 = new javax.swing.JButton();
+        jb_proveedorMenuTablas1 = new javax.swing.JButton();
+        jb_salirMenuTablas1 = new javax.swing.JButton();
+        jd_ventanaEliminarCliente = new javax.swing.JDialog();
+        jLabel50 = new javax.swing.JLabel();
+        jLabel51 = new javax.swing.JLabel();
+        jcb_rtnEliminarCliente = new javax.swing.JComboBox<>();
+        jLabel52 = new javax.swing.JLabel();
+        jtf_rtnClienteEliminar = new javax.swing.JTextField();
+        jb_aceptarEliminarCliente = new javax.swing.JButton();
+        jb_salirEliminarCliente = new javax.swing.JButton();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jd_ventanaEliminarCompania = new javax.swing.JDialog();
+        jLabel54 = new javax.swing.JLabel();
+        jLabel56 = new javax.swing.JLabel();
+        jcb_idEliminarCompania = new javax.swing.JComboBox<>();
+        jLabel57 = new javax.swing.JLabel();
+        jtf_idEliminarCompania = new javax.swing.JTextField();
+        jb_aceptarEliminarCompania = new javax.swing.JButton();
+        jButton8 = new javax.swing.JButton();
+        jLabel55 = new javax.swing.JLabel();
+        jd_ventanaEliminarConcesionario = new javax.swing.JDialog();
+        jLabel58 = new javax.swing.JLabel();
+        jLabel59 = new javax.swing.JLabel();
+        jLabel60 = new javax.swing.JLabel();
+        jcb_rtnEliminarConcesionario = new javax.swing.JComboBox<>();
+        jtf_rtnEliminarConcesionario = new javax.swing.JTextField();
+        jb_salirEliminarConcesionario = new javax.swing.JButton();
+        jb_aceptarEliminarConcesionario = new javax.swing.JButton();
+        jd_ventanaEliminarPlanta = new javax.swing.JDialog();
+        jLabel61 = new javax.swing.JLabel();
+        jLabel62 = new javax.swing.JLabel();
+        jLabel63 = new javax.swing.JLabel();
+        jcb_idEliminarPlanta = new javax.swing.JComboBox<>();
+        jtf_idEliminarPlanta = new javax.swing.JTextField();
+        jb_aceptarEliminarPlanta = new javax.swing.JButton();
+        jb_salirEliminarPlanta = new javax.swing.JButton();
+        jd_ventanaEliminarProveedor = new javax.swing.JDialog();
+        jLabel64 = new javax.swing.JLabel();
+        jLabel65 = new javax.swing.JLabel();
+        jLabel66 = new javax.swing.JLabel();
+        jcb_idEliminarProveedor = new javax.swing.JComboBox<>();
+        jtf_idEliminarProveedor = new javax.swing.JTextField();
+        jb_salirEliminarProveedor = new javax.swing.JButton();
+        jb_aceptarEliminarProveedor = new javax.swing.JButton();
+        jd_ventanaEliminarVehiculo = new javax.swing.JDialog();
+        jLabel67 = new javax.swing.JLabel();
+        jLabel68 = new javax.swing.JLabel();
+        jcb_vinEliminarVehiculo = new javax.swing.JComboBox<>();
+        jLabel69 = new javax.swing.JLabel();
+        jtf_vinEliminarVehiculo = new javax.swing.JTextField();
+        jb_aceptarEliminarVehiculo = new javax.swing.JButton();
+        jb_salirEliminarVehiculo = new javax.swing.JButton();
+        jd_ventanaEliminarVenta = new javax.swing.JDialog();
+        jLabel70 = new javax.swing.JLabel();
+        jLabel72 = new javax.swing.JLabel();
+        jcb_rtnEliminarConcesionarioVenta = new javax.swing.JComboBox<>();
+        jtf_rtnEliminarConcesionarioVenta = new javax.swing.JTextField();
+        jb_aceptarEliminarVenta = new javax.swing.JButton();
+        jb_salirEliminarVenta = new javax.swing.JButton();
+        jLabel73 = new javax.swing.JLabel();
+        jLabel74 = new javax.swing.JLabel();
+        jcb_vinEliminarVehiculoVenta = new javax.swing.JComboBox<>();
+        jtf_rtnEliminarClienteVenta = new javax.swing.JTextField();
+        jcb_rtnEliminarClienteVenta = new javax.swing.JComboBox<>();
+        jLabel75 = new javax.swing.JLabel();
+        jLabel76 = new javax.swing.JLabel();
+        jLabel77 = new javax.swing.JLabel();
+        jtf_vinEliminarVehiculoVenta = new javax.swing.JTextField();
         jb_imagenCarroMenuPrincipal = new javax.swing.JLabel();
         jb_distribuidoresMenuPrincipal = new javax.swing.JButton();
         jb_productosMenuPrincipal = new javax.swing.JButton();
@@ -282,6 +361,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         jb_eliminarMenuMantemiento.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         jb_eliminarMenuMantemiento.setText("Eliminar");
+        jb_eliminarMenuMantemiento.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_eliminarMenuMantemientoMouseClicked(evt);
+            }
+        });
 
         jb_salirMenuMantenimiento.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         jb_salirMenuMantenimiento.setText("Salir");
@@ -1176,8 +1260,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
             }
         });
 
-        jtf_fechaVenta.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
-
         jtf_precioVenta.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
 
         jcb_rtnConcesionarioVenta.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
@@ -1214,7 +1296,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
                             .addGroup(jd_ventanaVentaLayout.createSequentialGroup()
                                 .addComponent(jLabel49)
                                 .addGap(18, 18, 18)
-                                .addComponent(jtf_fechaVenta))))
+                                .addComponent(jdc_fechaVenta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(jd_ventanaVentaLayout.createSequentialGroup()
                         .addGap(70, 70, 70)
                         .addComponent(jb_guardarVenta)
@@ -1247,14 +1329,740 @@ public class MenuPrincipal extends javax.swing.JFrame {
                     .addComponent(jLabel48)
                     .addComponent(jtf_precioVenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jd_ventanaVentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jd_ventanaVentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel49)
-                    .addComponent(jtf_fechaVenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31)
+                    .addComponent(jdc_fechaVenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(34, 34, 34)
                 .addGroup(jd_ventanaVentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jb_guardarVenta)
                     .addComponent(jb_salirVenta))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jd_eliminarTablas.setTitle("Eliminar Tablas");
+
+        jLabel53.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jLabel53.setText("Menú Tablas");
+
+        jb_clienteMenuTablas1.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        jb_clienteMenuTablas1.setText("Tabla Cliente");
+        jb_clienteMenuTablas1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_clienteMenuTablas1MouseClicked(evt);
+            }
+        });
+
+        jb_companiaMenuTablas1.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        jb_companiaMenuTablas1.setText("Tabla Compania");
+        jb_companiaMenuTablas1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_companiaMenuTablas1MouseClicked(evt);
+            }
+        });
+
+        jb_concesionarioMenuTablas1.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        jb_concesionarioMenuTablas1.setText("Tabla Concesionario");
+        jb_concesionarioMenuTablas1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_concesionarioMenuTablas1MouseClicked(evt);
+            }
+        });
+
+        jb_plantaMenuTablas1.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        jb_plantaMenuTablas1.setText("Tabla Planta");
+        jb_plantaMenuTablas1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_plantaMenuTablas1MouseClicked(evt);
+            }
+        });
+
+        jb_ventaMenuTablas1.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        jb_ventaMenuTablas1.setText("Tabla Venta");
+        jb_ventaMenuTablas1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_ventaMenuTablas1MouseClicked(evt);
+            }
+        });
+
+        jb_vehiculoMenuTablas1.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        jb_vehiculoMenuTablas1.setText("Tabla Vehiculo");
+        jb_vehiculoMenuTablas1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_vehiculoMenuTablas1MouseClicked(evt);
+            }
+        });
+
+        jb_proveedorMenuTablas1.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        jb_proveedorMenuTablas1.setText("Tabla Proveedor");
+        jb_proveedorMenuTablas1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_proveedorMenuTablas1MouseClicked(evt);
+            }
+        });
+
+        jb_salirMenuTablas1.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        jb_salirMenuTablas1.setText("Salir");
+        jb_salirMenuTablas1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_salirMenuTablas1MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jd_eliminarTablasLayout = new javax.swing.GroupLayout(jd_eliminarTablas.getContentPane());
+        jd_eliminarTablas.getContentPane().setLayout(jd_eliminarTablasLayout);
+        jd_eliminarTablasLayout.setHorizontalGroup(
+            jd_eliminarTablasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_eliminarTablasLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jd_eliminarTablasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(jb_salirMenuTablas1)
+                    .addComponent(jLabel53)
+                    .addGroup(jd_eliminarTablasLayout.createSequentialGroup()
+                        .addComponent(jb_proveedorMenuTablas1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jb_vehiculoMenuTablas1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jb_ventaMenuTablas1))
+                    .addGroup(jd_eliminarTablasLayout.createSequentialGroup()
+                        .addComponent(jb_clienteMenuTablas1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jb_companiaMenuTablas1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jb_concesionarioMenuTablas1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jb_plantaMenuTablas1)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jd_eliminarTablasLayout.setVerticalGroup(
+            jd_eliminarTablasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_eliminarTablasLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel53)
+                .addGap(50, 50, 50)
+                .addGroup(jd_eliminarTablasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jb_clienteMenuTablas1)
+                    .addComponent(jb_companiaMenuTablas1)
+                    .addComponent(jb_concesionarioMenuTablas1)
+                    .addComponent(jb_plantaMenuTablas1))
+                .addGap(51, 51, 51)
+                .addGroup(jd_eliminarTablasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jb_proveedorMenuTablas1)
+                    .addComponent(jb_vehiculoMenuTablas1)
+                    .addComponent(jb_ventaMenuTablas1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
+                .addComponent(jb_salirMenuTablas1)
+                .addContainerGap())
+        );
+
+        jd_ventanaEliminarCliente.setTitle("Eliminar Cliente");
+
+        jLabel50.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jLabel50.setText("Eliminar Cliente");
+
+        jLabel51.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        jLabel51.setText("RTN del Cliente");
+
+        jcb_rtnEliminarCliente.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+
+        jLabel52.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        jLabel52.setText("Escriba el RTN del cliente que desea eliminar");
+
+        jtf_rtnClienteEliminar.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+
+        jb_aceptarEliminarCliente.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        jb_aceptarEliminarCliente.setText("Aceptar");
+        jb_aceptarEliminarCliente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_aceptarEliminarClienteMouseClicked(evt);
+            }
+        });
+
+        jb_salirEliminarCliente.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        jb_salirEliminarCliente.setText("Salir");
+        jb_salirEliminarCliente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_salirEliminarClienteMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jd_ventanaEliminarClienteLayout = new javax.swing.GroupLayout(jd_ventanaEliminarCliente.getContentPane());
+        jd_ventanaEliminarCliente.getContentPane().setLayout(jd_ventanaEliminarClienteLayout);
+        jd_ventanaEliminarClienteLayout.setHorizontalGroup(
+            jd_ventanaEliminarClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_ventanaEliminarClienteLayout.createSequentialGroup()
+                .addGroup(jd_ventanaEliminarClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_ventanaEliminarClienteLayout.createSequentialGroup()
+                        .addGap(125, 125, 125)
+                        .addComponent(jLabel50))
+                    .addGroup(jd_ventanaEliminarClienteLayout.createSequentialGroup()
+                        .addGap(36, 36, 36)
+                        .addComponent(jLabel51)
+                        .addGap(28, 28, 28)
+                        .addComponent(jcb_rtnEliminarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jd_ventanaEliminarClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jd_ventanaEliminarClienteLayout.createSequentialGroup()
+                            .addGap(106, 106, 106)
+                            .addGroup(jd_ventanaEliminarClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jd_ventanaEliminarClienteLayout.createSequentialGroup()
+                                    .addComponent(jb_aceptarEliminarCliente)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jb_salirEliminarCliente))
+                                .addComponent(jtf_rtnClienteEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jd_ventanaEliminarClienteLayout.createSequentialGroup()
+                            .addGap(80, 80, 80)
+                            .addComponent(jLabel52))))
+                .addContainerGap(70, Short.MAX_VALUE))
+        );
+        jd_ventanaEliminarClienteLayout.setVerticalGroup(
+            jd_ventanaEliminarClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_ventanaEliminarClienteLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel50)
+                .addGap(25, 25, 25)
+                .addGroup(jd_ventanaEliminarClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel51)
+                    .addComponent(jcb_rtnEliminarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(65, 65, 65)
+                .addComponent(jLabel52)
+                .addGap(18, 18, 18)
+                .addComponent(jtf_rtnClienteEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                .addGroup(jd_ventanaEliminarClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jb_aceptarEliminarCliente)
+                    .addComponent(jb_salirEliminarCliente))
+                .addGap(30, 30, 30))
+        );
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jd_ventanaEliminarCompania.setTitle("Eliminar Compañía");
+
+        jLabel54.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jLabel54.setText("Eliminar Compañía");
+
+        jLabel56.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        jLabel56.setText("ID de la Compañía");
+
+        jcb_idEliminarCompania.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+
+        jLabel57.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        jLabel57.setText("Ingrese el ID de la Compañía que desea eliminar");
+
+        jtf_idEliminarCompania.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+
+        jb_aceptarEliminarCompania.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        jb_aceptarEliminarCompania.setText("Aceptar");
+        jb_aceptarEliminarCompania.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_aceptarEliminarCompaniaMouseClicked(evt);
+            }
+        });
+
+        jButton8.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        jButton8.setText("Salir");
+        jButton8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton8MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jd_ventanaEliminarCompaniaLayout = new javax.swing.GroupLayout(jd_ventanaEliminarCompania.getContentPane());
+        jd_ventanaEliminarCompania.getContentPane().setLayout(jd_ventanaEliminarCompaniaLayout);
+        jd_ventanaEliminarCompaniaLayout.setHorizontalGroup(
+            jd_ventanaEliminarCompaniaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_ventanaEliminarCompaniaLayout.createSequentialGroup()
+                .addGroup(jd_ventanaEliminarCompaniaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_ventanaEliminarCompaniaLayout.createSequentialGroup()
+                        .addGap(113, 113, 113)
+                        .addComponent(jLabel54))
+                    .addGroup(jd_ventanaEliminarCompaniaLayout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addGroup(jd_ventanaEliminarCompaniaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel57)
+                            .addGroup(jd_ventanaEliminarCompaniaLayout.createSequentialGroup()
+                                .addComponent(jLabel56)
+                                .addGap(31, 31, 31)
+                                .addComponent(jcb_idEliminarCompania, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jd_ventanaEliminarCompaniaLayout.createSequentialGroup()
+                        .addGap(91, 91, 91)
+                        .addComponent(jtf_idEliminarCompania, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(45, Short.MAX_VALUE))
+            .addGroup(jd_ventanaEliminarCompaniaLayout.createSequentialGroup()
+                .addGap(75, 75, 75)
+                .addComponent(jb_aceptarEliminarCompania)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton8)
+                .addGap(77, 77, 77))
+        );
+        jd_ventanaEliminarCompaniaLayout.setVerticalGroup(
+            jd_ventanaEliminarCompaniaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_ventanaEliminarCompaniaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel54)
+                .addGap(32, 32, 32)
+                .addGroup(jd_ventanaEliminarCompaniaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel56)
+                    .addComponent(jcb_idEliminarCompania, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(51, 51, 51)
+                .addComponent(jLabel57)
+                .addGap(18, 18, 18)
+                .addComponent(jtf_idEliminarCompania, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                .addGroup(jd_ventanaEliminarCompaniaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jb_aceptarEliminarCompania)
+                    .addComponent(jButton8))
+                .addGap(33, 33, 33))
+        );
+
+        jLabel55.setText("jLabel55");
+
+        jd_ventanaEliminarConcesionario.setTitle("Eliminar Concesionario");
+
+        jLabel58.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jLabel58.setText("Eliminar Concesionario");
+
+        jLabel59.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        jLabel59.setText("RTN del concesionario");
+
+        jLabel60.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        jLabel60.setText("Ingrese el RTN del concesionario que desea eliminar");
+
+        jcb_rtnEliminarConcesionario.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+
+        jtf_rtnEliminarConcesionario.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+
+        jb_salirEliminarConcesionario.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        jb_salirEliminarConcesionario.setText("Salir");
+        jb_salirEliminarConcesionario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_salirEliminarConcesionarioMouseClicked(evt);
+            }
+        });
+
+        jb_aceptarEliminarConcesionario.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        jb_aceptarEliminarConcesionario.setText("Aceptar");
+        jb_aceptarEliminarConcesionario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_aceptarEliminarConcesionarioMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jd_ventanaEliminarConcesionarioLayout = new javax.swing.GroupLayout(jd_ventanaEliminarConcesionario.getContentPane());
+        jd_ventanaEliminarConcesionario.getContentPane().setLayout(jd_ventanaEliminarConcesionarioLayout);
+        jd_ventanaEliminarConcesionarioLayout.setHorizontalGroup(
+            jd_ventanaEliminarConcesionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_ventanaEliminarConcesionarioLayout.createSequentialGroup()
+                .addGroup(jd_ventanaEliminarConcesionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_ventanaEliminarConcesionarioLayout.createSequentialGroup()
+                        .addGap(43, 43, 43)
+                        .addGroup(jd_ventanaEliminarConcesionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jd_ventanaEliminarConcesionarioLayout.createSequentialGroup()
+                                .addGap(79, 79, 79)
+                                .addComponent(jLabel58))
+                            .addComponent(jLabel60)
+                            .addGroup(jd_ventanaEliminarConcesionarioLayout.createSequentialGroup()
+                                .addComponent(jLabel59)
+                                .addGap(26, 26, 26)
+                                .addComponent(jcb_rtnEliminarConcesionario, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addGroup(jd_ventanaEliminarConcesionarioLayout.createSequentialGroup()
+                        .addGap(94, 94, 94)
+                        .addComponent(jtf_rtnEliminarConcesionario, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(66, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_ventanaEliminarConcesionarioLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jb_salirEliminarConcesionario)
+                .addGap(100, 100, 100))
+            .addGroup(jd_ventanaEliminarConcesionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jd_ventanaEliminarConcesionarioLayout.createSequentialGroup()
+                    .addGap(104, 104, 104)
+                    .addComponent(jb_aceptarEliminarConcesionario)
+                    .addContainerGap(223, Short.MAX_VALUE)))
+        );
+        jd_ventanaEliminarConcesionarioLayout.setVerticalGroup(
+            jd_ventanaEliminarConcesionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_ventanaEliminarConcesionarioLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel58)
+                .addGap(32, 32, 32)
+                .addGroup(jd_ventanaEliminarConcesionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel59)
+                    .addComponent(jcb_rtnEliminarConcesionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(47, 47, 47)
+                .addComponent(jLabel60)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jtf_rtnEliminarConcesionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
+                .addComponent(jb_salirEliminarConcesionario)
+                .addGap(34, 34, 34))
+            .addGroup(jd_ventanaEliminarConcesionarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_ventanaEliminarConcesionarioLayout.createSequentialGroup()
+                    .addContainerGap(242, Short.MAX_VALUE)
+                    .addComponent(jb_aceptarEliminarConcesionario)
+                    .addGap(33, 33, 33)))
+        );
+
+        jd_ventanaEliminarPlanta.setTitle("Eliminar Planta");
+
+        jLabel61.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        jLabel61.setText("ID de la Planta");
+
+        jLabel62.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jLabel62.setText("Eliminar Planta");
+
+        jLabel63.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        jLabel63.setText("Ingrese el ID de la planta que desea eliminar");
+
+        jcb_idEliminarPlanta.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+
+        jtf_idEliminarPlanta.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+
+        jb_aceptarEliminarPlanta.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        jb_aceptarEliminarPlanta.setText("Aceptar");
+        jb_aceptarEliminarPlanta.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_aceptarEliminarPlantaMouseClicked(evt);
+            }
+        });
+
+        jb_salirEliminarPlanta.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        jb_salirEliminarPlanta.setText("Salir");
+        jb_salirEliminarPlanta.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_salirEliminarPlantaMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jd_ventanaEliminarPlantaLayout = new javax.swing.GroupLayout(jd_ventanaEliminarPlanta.getContentPane());
+        jd_ventanaEliminarPlanta.getContentPane().setLayout(jd_ventanaEliminarPlantaLayout);
+        jd_ventanaEliminarPlantaLayout.setHorizontalGroup(
+            jd_ventanaEliminarPlantaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_ventanaEliminarPlantaLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jtf_idEliminarPlanta, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(80, 80, 80))
+            .addGroup(jd_ventanaEliminarPlantaLayout.createSequentialGroup()
+                .addGroup(jd_ventanaEliminarPlantaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_ventanaEliminarPlantaLayout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addGroup(jd_ventanaEliminarPlantaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel63)
+                            .addGroup(jd_ventanaEliminarPlantaLayout.createSequentialGroup()
+                                .addComponent(jLabel61)
+                                .addGap(18, 18, 18)
+                                .addComponent(jcb_idEliminarPlanta, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jd_ventanaEliminarPlantaLayout.createSequentialGroup()
+                        .addGap(75, 75, 75)
+                        .addComponent(jb_aceptarEliminarPlanta)
+                        .addGap(75, 75, 75)
+                        .addComponent(jb_salirEliminarPlanta))
+                    .addGroup(jd_ventanaEliminarPlantaLayout.createSequentialGroup()
+                        .addGap(110, 110, 110)
+                        .addComponent(jLabel62)))
+                .addContainerGap(63, Short.MAX_VALUE))
+        );
+        jd_ventanaEliminarPlantaLayout.setVerticalGroup(
+            jd_ventanaEliminarPlantaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_ventanaEliminarPlantaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel62)
+                .addGap(29, 29, 29)
+                .addGroup(jd_ventanaEliminarPlantaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel61)
+                    .addComponent(jcb_idEliminarPlanta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(46, 46, 46)
+                .addComponent(jLabel63)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jtf_idEliminarPlanta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(49, 49, 49)
+                .addGroup(jd_ventanaEliminarPlantaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jb_aceptarEliminarPlanta)
+                    .addComponent(jb_salirEliminarPlanta))
+                .addContainerGap(51, Short.MAX_VALUE))
+        );
+
+        jd_ventanaEliminarProveedor.setTitle("Eliminar Proveedor");
+
+        jLabel64.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jLabel64.setText("Eliminar Proveedor");
+
+        jLabel65.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        jLabel65.setText("ID del Proveedor");
+
+        jLabel66.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        jLabel66.setText("Ingrese el ID del proveedor que desea eliminar");
+
+        jcb_idEliminarProveedor.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+
+        jtf_idEliminarProveedor.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+
+        jb_salirEliminarProveedor.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        jb_salirEliminarProveedor.setText("Salir");
+        jb_salirEliminarProveedor.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_salirEliminarProveedorMouseClicked(evt);
+            }
+        });
+
+        jb_aceptarEliminarProveedor.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        jb_aceptarEliminarProveedor.setText("Aceptar");
+        jb_aceptarEliminarProveedor.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_aceptarEliminarProveedorMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jd_ventanaEliminarProveedorLayout = new javax.swing.GroupLayout(jd_ventanaEliminarProveedor.getContentPane());
+        jd_ventanaEliminarProveedor.getContentPane().setLayout(jd_ventanaEliminarProveedorLayout);
+        jd_ventanaEliminarProveedorLayout.setHorizontalGroup(
+            jd_ventanaEliminarProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_ventanaEliminarProveedorLayout.createSequentialGroup()
+                .addGroup(jd_ventanaEliminarProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_ventanaEliminarProveedorLayout.createSequentialGroup()
+                        .addGap(54, 54, 54)
+                        .addGroup(jd_ventanaEliminarProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel66)
+                            .addGroup(jd_ventanaEliminarProveedorLayout.createSequentialGroup()
+                                .addComponent(jLabel65)
+                                .addGap(18, 18, 18)
+                                .addComponent(jcb_idEliminarProveedor, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addGroup(jd_ventanaEliminarProveedorLayout.createSequentialGroup()
+                        .addGap(117, 117, 117)
+                        .addComponent(jLabel64))
+                    .addGroup(jd_ventanaEliminarProveedorLayout.createSequentialGroup()
+                        .addGap(90, 90, 90)
+                        .addGroup(jd_ventanaEliminarProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jtf_idEliminarProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jd_ventanaEliminarProveedorLayout.createSequentialGroup()
+                                .addComponent(jb_aceptarEliminarProveedor)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jb_salirEliminarProveedor)))))
+                .addContainerGap(86, Short.MAX_VALUE))
+        );
+        jd_ventanaEliminarProveedorLayout.setVerticalGroup(
+            jd_ventanaEliminarProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_ventanaEliminarProveedorLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel64)
+                .addGap(26, 26, 26)
+                .addGroup(jd_ventanaEliminarProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel65)
+                    .addComponent(jcb_idEliminarProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(45, 45, 45)
+                .addComponent(jLabel66)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jtf_idEliminarProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                .addGroup(jd_ventanaEliminarProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jb_salirEliminarProveedor)
+                    .addComponent(jb_aceptarEliminarProveedor))
+                .addGap(43, 43, 43))
+        );
+
+        jd_ventanaEliminarVehiculo.setTitle("Eliminar Vehículo");
+
+        jLabel67.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jLabel67.setText("Eliminar Vehículo");
+
+        jLabel68.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        jLabel68.setText("VIN");
+
+        jcb_vinEliminarVehiculo.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+
+        jLabel69.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        jLabel69.setText("Ingrese el VIN del vehículo que desea eliminar");
+
+        jtf_vinEliminarVehiculo.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+
+        jb_aceptarEliminarVehiculo.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        jb_aceptarEliminarVehiculo.setText("Aceptar");
+        jb_aceptarEliminarVehiculo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_aceptarEliminarVehiculoMouseClicked(evt);
+            }
+        });
+
+        jb_salirEliminarVehiculo.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        jb_salirEliminarVehiculo.setText("Salir");
+        jb_salirEliminarVehiculo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_salirEliminarVehiculoMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jd_ventanaEliminarVehiculoLayout = new javax.swing.GroupLayout(jd_ventanaEliminarVehiculo.getContentPane());
+        jd_ventanaEliminarVehiculo.getContentPane().setLayout(jd_ventanaEliminarVehiculoLayout);
+        jd_ventanaEliminarVehiculoLayout.setHorizontalGroup(
+            jd_ventanaEliminarVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_ventanaEliminarVehiculoLayout.createSequentialGroup()
+                .addGroup(jd_ventanaEliminarVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_ventanaEliminarVehiculoLayout.createSequentialGroup()
+                        .addGap(54, 54, 54)
+                        .addComponent(jLabel69))
+                    .addGroup(jd_ventanaEliminarVehiculoLayout.createSequentialGroup()
+                        .addGap(90, 90, 90)
+                        .addGroup(jd_ventanaEliminarVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jtf_vinEliminarVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jd_ventanaEliminarVehiculoLayout.createSequentialGroup()
+                                .addComponent(jb_aceptarEliminarVehiculo)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jb_salirEliminarVehiculo))))
+                    .addGroup(jd_ventanaEliminarVehiculoLayout.createSequentialGroup()
+                        .addGap(117, 117, 117)
+                        .addGroup(jd_ventanaEliminarVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jd_ventanaEliminarVehiculoLayout.createSequentialGroup()
+                                .addComponent(jLabel68)
+                                .addGap(18, 18, 18)
+                                .addComponent(jcb_vinEliminarVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel67))))
+                .addContainerGap(89, Short.MAX_VALUE))
+        );
+        jd_ventanaEliminarVehiculoLayout.setVerticalGroup(
+            jd_ventanaEliminarVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_ventanaEliminarVehiculoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel67)
+                .addGap(26, 26, 26)
+                .addGroup(jd_ventanaEliminarVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel68)
+                    .addComponent(jcb_vinEliminarVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(45, 45, 45)
+                .addComponent(jLabel69)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jtf_vinEliminarVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
+                .addGroup(jd_ventanaEliminarVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jb_salirEliminarVehiculo)
+                    .addComponent(jb_aceptarEliminarVehiculo))
+                .addGap(43, 43, 43))
+        );
+
+        jd_ventanaEliminarVenta.setTitle("Eliminar Venta");
+
+        jLabel70.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jLabel70.setText("Eliminar Venta");
+
+        jLabel72.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        jLabel72.setText("Ingrese el RTN del concesionario");
+
+        jcb_rtnEliminarConcesionarioVenta.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+
+        jtf_rtnEliminarConcesionarioVenta.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+
+        jb_aceptarEliminarVenta.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        jb_aceptarEliminarVenta.setText("Aceptar");
+        jb_aceptarEliminarVenta.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_aceptarEliminarVentaMouseClicked(evt);
+            }
+        });
+
+        jb_salirEliminarVenta.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        jb_salirEliminarVenta.setText("Salir");
+        jb_salirEliminarVenta.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_salirEliminarVentaMouseClicked(evt);
+            }
+        });
+
+        jLabel73.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        jLabel73.setText("RTN del concesionario");
+
+        jLabel74.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        jLabel74.setText("RTN del Cliente");
+
+        jcb_vinEliminarVehiculoVenta.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+
+        jtf_rtnEliminarClienteVenta.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+
+        jcb_rtnEliminarClienteVenta.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+
+        jLabel75.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        jLabel75.setText("VIN");
+
+        jLabel76.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        jLabel76.setText("Ingrese el RTN del cliente");
+
+        jLabel77.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        jLabel77.setText("Ingrese el VIN");
+
+        jtf_vinEliminarVehiculoVenta.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+
+        javax.swing.GroupLayout jd_ventanaEliminarVentaLayout = new javax.swing.GroupLayout(jd_ventanaEliminarVenta.getContentPane());
+        jd_ventanaEliminarVenta.getContentPane().setLayout(jd_ventanaEliminarVentaLayout);
+        jd_ventanaEliminarVentaLayout.setHorizontalGroup(
+            jd_ventanaEliminarVentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_ventanaEliminarVentaLayout.createSequentialGroup()
+                .addGroup(jd_ventanaEliminarVentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_ventanaEliminarVentaLayout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addGroup(jd_ventanaEliminarVentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jd_ventanaEliminarVentaLayout.createSequentialGroup()
+                                .addComponent(jLabel75)
+                                .addGap(18, 18, 18)
+                                .addComponent(jcb_vinEliminarVehiculoVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jd_ventanaEliminarVentaLayout.createSequentialGroup()
+                                .addComponent(jLabel74)
+                                .addGap(18, 18, 18)
+                                .addComponent(jcb_rtnEliminarClienteVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jd_ventanaEliminarVentaLayout.createSequentialGroup()
+                                .addComponent(jLabel72)
+                                .addGap(18, 18, 18)
+                                .addComponent(jtf_rtnEliminarConcesionarioVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jd_ventanaEliminarVentaLayout.createSequentialGroup()
+                                .addComponent(jLabel76)
+                                .addGap(18, 18, 18)
+                                .addComponent(jtf_rtnEliminarClienteVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jd_ventanaEliminarVentaLayout.createSequentialGroup()
+                                .addComponent(jLabel77)
+                                .addGap(18, 18, 18)
+                                .addComponent(jtf_vinEliminarVehiculoVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jd_ventanaEliminarVentaLayout.createSequentialGroup()
+                                .addComponent(jLabel73)
+                                .addGap(18, 18, 18)
+                                .addGroup(jd_ventanaEliminarVentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel70)
+                                    .addComponent(jcb_rtnEliminarConcesionarioVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(jd_ventanaEliminarVentaLayout.createSequentialGroup()
+                        .addGap(154, 154, 154)
+                        .addComponent(jb_aceptarEliminarVenta)
+                        .addGap(74, 74, 74)
+                        .addComponent(jb_salirEliminarVenta)))
+                .addContainerGap(63, Short.MAX_VALUE))
+        );
+        jd_ventanaEliminarVentaLayout.setVerticalGroup(
+            jd_ventanaEliminarVentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_ventanaEliminarVentaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel70)
+                .addGap(38, 38, 38)
+                .addGroup(jd_ventanaEliminarVentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jcb_rtnEliminarConcesionarioVenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel73))
+                .addGap(18, 18, 18)
+                .addGroup(jd_ventanaEliminarVentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel74)
+                    .addComponent(jcb_rtnEliminarClienteVenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jd_ventanaEliminarVentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jcb_vinEliminarVehiculoVenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel75))
+                .addGap(21, 21, 21)
+                .addGroup(jd_ventanaEliminarVentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel72)
+                    .addComponent(jtf_rtnEliminarConcesionarioVenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jd_ventanaEliminarVentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel76)
+                    .addComponent(jtf_rtnEliminarClienteVenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jd_ventanaEliminarVentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel77)
+                    .addComponent(jtf_vinEliminarVehiculoVenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+                .addGroup(jd_ventanaEliminarVentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jb_aceptarEliminarVenta)
+                    .addComponent(jb_salirEliminarVenta))
+                .addContainerGap())
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -1505,7 +2313,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void jb_plantaMenuTablasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_plantaMenuTablasMouseClicked
         try {
-            db.cargarCB(jcb_idCompaniaPlanta);
+            db.cargarCBCompania(jcb_idCompaniaPlanta);
         } catch (SQLException ex) {
             Logger.getLogger(MenuPrincipal.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -1567,7 +2375,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void jb_vehiculoMenuTablasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_vehiculoMenuTablasMouseClicked
         try {
-            db.cargarCB(jcb_idCompaniaVehiculo);
+            db.cargarCBCompania(jcb_idCompaniaVehiculo);
         } catch (SQLException ex) {
             Logger.getLogger(MenuPrincipal.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -1586,12 +2394,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
         int condicion = -1;
         float precio = Float.parseFloat(jtf_precioVehiculo.getText());
         String idCompania = ((String) jcb_idCompaniaVehiculo.getSelectedItem());
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
-        //String fechaComoCadena = sdf.format();
-        //System.out.println(fechaComoCadena);
-        Date fecha = (Date) jdc_fechaVehiculo.getDate();
+        java.util.Date utilDate = jdc_fechaVehiculo.getDate();
+        java.sql.Date sDate = convertUtilToSql(utilDate);
         condicion = db.procedimientoInsertarVehiculo(jtf_vinVehiculo.getText(), jtf_modeloVehiculo.getText(), jtf_carroceriaVehiculo.getText(), jtf_motorVehiculo.getText(), jtf_colorVehiculo.getText(),
-                jtf_transmicionVehiculo.getText(), fecha, precio, idCompania);
+                jtf_transmicionVehiculo.getText(), sDate, precio, idCompania);
         if (condicion == 1) {
             JOptionPane.showMessageDialog(this, "Hay valores nulos");
         } else if (condicion == 2) {
@@ -1601,6 +2407,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
         } else if (condicion == 3) {
             JOptionPane.showMessageDialog(this, "El ID de la Compañía no existe");
         }
+        jtf_vinVehiculo.setText("");
+        jtf_modeloVehiculo.setText("");
+        jtf_carroceriaVehiculo.setText("");
+        jtf_motorVehiculo.setText("");
+        jtf_colorVehiculo.setText("");
+        jtf_transmicionVehiculo.setText("");
+        jtf_precioVehiculo.setText("");
+
     }//GEN-LAST:event_jb_guardarVehiculoMouseClicked
 
     private void jb_ventaMenuTablasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_ventaMenuTablasMouseClicked
@@ -1631,8 +2445,326 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jb_salirVentaMouseClicked
 
     private void jb_guardarVentaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_guardarVentaMouseClicked
-        // TODO add your handling code here:
+        int condicion = -1;
+        float precio = Float.parseFloat(jtf_precioVenta.getText());
+        String rtnConcesionario = ((String) jcb_rtnConcesionarioVenta.getSelectedItem());
+        String rtnCliente = ((String) jcb_rtnClienteVenta.getSelectedItem());
+        String vinVenta = ((String) jcb_vinVenta.getSelectedItem());
+        java.util.Date utilDate = jdc_fechaVenta.getDate();
+        java.sql.Date sDate = convertUtilToSql(utilDate);
+        condicion = db.procedimientoInsertarVenta(rtnConcesionario, rtnCliente, vinVenta, precio, sDate);
+        if (condicion == 1) {
+            JOptionPane.showMessageDialog(this, "Hay valores nulos");
+        } else if (condicion == 2) {
+            JOptionPane.showMessageDialog(this, "El VIN del vehículo ya existe");
+        } else if (condicion == 0) {
+            JOptionPane.showMessageDialog(this, "El vehículo se ha agregado exitosamente");
+        } else if (condicion == 3) {
+            JOptionPane.showMessageDialog(this, "El ID de la Compañía no existe");
+        }
+        jtf_precioVenta.setText("");
     }//GEN-LAST:event_jb_guardarVentaMouseClicked
+
+    private void jb_salirEliminarClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_salirEliminarClienteMouseClicked
+        jd_ventanaEliminarCliente.setVisible(false);
+    }//GEN-LAST:event_jb_salirEliminarClienteMouseClicked
+
+    private void jb_aceptarEliminarClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_aceptarEliminarClienteMouseClicked
+        int condicion = -1;
+        if (jtf_rtnClienteEliminar.getText() == null) {
+            JOptionPane.showMessageDialog(this, "Ingrese el RTN del cliente que desea eliminar");
+        } else {
+            condicion = db.procedimientoEliminarCliente(jtf_rtnClienteEliminar.getText());
+            if (condicion == 1) {
+                JOptionPane.showMessageDialog(this, "La operación se ha realizo exitosamente");
+            } else if (condicion == 2) {
+                JOptionPane.showMessageDialog(this, "El RTN del cliente no existe");
+            }
+        }
+        jtf_rtnClienteEliminar.setText("");
+        try {
+            db.cargarCBCliente(jcb_rtnEliminarCliente);
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jb_aceptarEliminarClienteMouseClicked
+
+    private void jb_clienteMenuTablas1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_clienteMenuTablas1MouseClicked
+        try {
+            db.cargarCBCliente(jcb_rtnEliminarCliente);
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        jd_ventanaEliminarCliente.pack();
+        jd_ventanaEliminarCliente.setModal(true);
+        jd_ventanaEliminarCliente.setLocationRelativeTo(this);
+        jd_ventanaEliminarCliente.setVisible(true);
+        jd_eliminarTablas.setVisible(false);
+    }//GEN-LAST:event_jb_clienteMenuTablas1MouseClicked
+
+    private void jb_companiaMenuTablas1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_companiaMenuTablas1MouseClicked
+        try {
+            db.cargarCBCompania(jcb_idEliminarCompania);
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        jd_ventanaEliminarCompania.pack();
+        jd_ventanaEliminarCompania.setModal(true);
+        jd_ventanaEliminarCompania.setLocationRelativeTo(this);
+        jd_ventanaEliminarCompania.setVisible(true);
+        jd_eliminarTablas.setVisible(false);
+    }//GEN-LAST:event_jb_companiaMenuTablas1MouseClicked
+
+    private void jb_concesionarioMenuTablas1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_concesionarioMenuTablas1MouseClicked
+        try {
+            db.cargarCBConcesionario(jcb_rtnEliminarConcesionario);
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        jd_ventanaEliminarConcesionario.pack();
+        jd_ventanaEliminarConcesionario.setModal(true);
+        jd_ventanaEliminarConcesionario.setLocationRelativeTo(this);
+        jd_ventanaEliminarConcesionario.setVisible(true);
+        jd_eliminarTablas.setVisible(false);
+    }//GEN-LAST:event_jb_concesionarioMenuTablas1MouseClicked
+
+    private void jb_plantaMenuTablas1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_plantaMenuTablas1MouseClicked
+        try {
+            db.cargarCBPlanta(jcb_idEliminarPlanta);
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        jd_ventanaEliminarPlanta.pack();
+        jd_ventanaEliminarPlanta.setModal(true);
+        jd_ventanaEliminarPlanta.setLocationRelativeTo(this);
+        jd_ventanaEliminarPlanta.setVisible(true);
+        jd_eliminarTablas.setVisible(false);
+    }//GEN-LAST:event_jb_plantaMenuTablas1MouseClicked
+
+    private void jb_ventaMenuTablas1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_ventaMenuTablas1MouseClicked
+        try {
+            db.cargarCBVin(jcb_vinEliminarVehiculoVenta);
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            db.cargarCBConcesionario(jcb_rtnEliminarConcesionarioVenta);
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            db.cargarCBCliente(jcb_rtnEliminarClienteVenta);
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        jd_ventanaEliminarVenta.pack();
+        jd_ventanaEliminarVenta.setModal(true);
+        jd_ventanaEliminarVenta.setLocationRelativeTo(this);
+        jd_ventanaEliminarVenta.setVisible(true);
+        jd_eliminarTablas.setVisible(false);
+    }//GEN-LAST:event_jb_ventaMenuTablas1MouseClicked
+
+    private void jb_vehiculoMenuTablas1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_vehiculoMenuTablas1MouseClicked
+        try {
+            db.cargarCBVin(jcb_vinEliminarVehiculo);
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        jd_ventanaEliminarVehiculo.pack();
+        jd_ventanaEliminarVehiculo.setModal(true);
+        jd_ventanaEliminarVehiculo.setLocationRelativeTo(this);
+        jd_ventanaEliminarVehiculo.setVisible(true);
+        jd_eliminarTablas.setVisible(false);
+    }//GEN-LAST:event_jb_vehiculoMenuTablas1MouseClicked
+
+    private void jb_proveedorMenuTablas1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_proveedorMenuTablas1MouseClicked
+        try {
+            db.cargarCBProveedor(jcb_idEliminarProveedor);
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        jd_ventanaEliminarProveedor.pack();
+        jd_ventanaEliminarProveedor.setModal(true);
+        jd_ventanaEliminarProveedor.setLocationRelativeTo(this);
+        jd_ventanaEliminarProveedor.setVisible(true);
+        jd_eliminarTablas.setVisible(false);
+    }//GEN-LAST:event_jb_proveedorMenuTablas1MouseClicked
+
+    private void jb_salirMenuTablas1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_salirMenuTablas1MouseClicked
+        jd_eliminarTablas.setVisible(false);
+    }//GEN-LAST:event_jb_salirMenuTablas1MouseClicked
+
+    private void jb_eliminarMenuMantemientoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_eliminarMenuMantemientoMouseClicked
+        jd_eliminarTablas.pack();
+        jd_eliminarTablas.setModal(true);
+        jd_eliminarTablas.setLocationRelativeTo(this);
+        jd_eliminarTablas.setVisible(true);
+        jd_ventanaMenuTabla.setVisible(false);
+    }//GEN-LAST:event_jb_eliminarMenuMantemientoMouseClicked
+
+    private void jButton8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton8MouseClicked
+        jd_ventanaEliminarCompania.setVisible(false);
+    }//GEN-LAST:event_jButton8MouseClicked
+
+    private void jb_aceptarEliminarCompaniaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_aceptarEliminarCompaniaMouseClicked
+        int condicion = -1;
+        if (jtf_idEliminarCompania.getText() == null) {
+            JOptionPane.showMessageDialog(this, "Ingrese el ID de la compañía que desea eliminar");
+        } else {
+            condicion = db.procedimientoEliminarCompania(jtf_idEliminarCompania.getText());
+            if (condicion == 1) {
+                JOptionPane.showMessageDialog(this, "La operación se ha realizo exitosamente");
+            } else if (condicion == 2) {
+                JOptionPane.showMessageDialog(this, "El ID de la compañía no existe");
+            }
+        }
+        jtf_idEliminarCompania.setText("");
+        try {
+            /*DefaultComboBoxModel modelo = (DefaultComboBoxModel) jcb_idEliminarCompania.getModel();
+            jcb_idEliminarCompania.setModel(modelo);*/
+            db.cargarCBCompania(jcb_idEliminarCompania);
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jb_aceptarEliminarCompaniaMouseClicked
+
+    private void jb_salirEliminarConcesionarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_salirEliminarConcesionarioMouseClicked
+        jd_ventanaEliminarConcesionario.setVisible(false);
+    }//GEN-LAST:event_jb_salirEliminarConcesionarioMouseClicked
+
+    private void jb_aceptarEliminarConcesionarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_aceptarEliminarConcesionarioMouseClicked
+        int condicion = -1;
+        if (jtf_rtnEliminarConcesionario.getText() == null) {
+            JOptionPane.showMessageDialog(this, "Ingrese el RTN del concesionario que desea eliminar");
+        } else {
+            condicion = db.procedimientoEliminarConcesionario(jtf_rtnEliminarConcesionario.getText());
+            if (condicion == 1) {
+                JOptionPane.showMessageDialog(this, "La operación se ha realizo exitosamente");
+            } else if (condicion == 2) {
+                JOptionPane.showMessageDialog(this, "El RTN del concesionario no existe");
+            }
+        }
+        jtf_rtnEliminarConcesionario.setText("");
+        try {
+            db.cargarCBConcesionario(jcb_rtnEliminarConcesionario);
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jb_aceptarEliminarConcesionarioMouseClicked
+
+    private void jb_salirEliminarPlantaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_salirEliminarPlantaMouseClicked
+        jd_ventanaEliminarPlanta.setVisible(false);
+    }//GEN-LAST:event_jb_salirEliminarPlantaMouseClicked
+
+    private void jb_aceptarEliminarPlantaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_aceptarEliminarPlantaMouseClicked
+        int condicion = -1;
+        if (jtf_idEliminarPlanta.getText() == null) {
+            JOptionPane.showMessageDialog(this, "Ingrese el ID de la planta que desea eliminar");
+        } else {
+            condicion = db.procedimientoEliminarPlanta(jtf_idEliminarPlanta.getText());
+            if (condicion == 1) {
+                JOptionPane.showMessageDialog(this, "La operación se ha realizo exitosamente");
+            } else if (condicion == 2) {
+                JOptionPane.showMessageDialog(this, "El ID de la planta no existe");
+            }
+        }
+        jtf_idEliminarPlanta.setText("");
+        try {
+            db.cargarCBPlanta(jcb_idCompaniaPlanta);
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jb_aceptarEliminarPlantaMouseClicked
+
+    private void jb_salirEliminarProveedorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_salirEliminarProveedorMouseClicked
+        jd_ventanaEliminarProveedor.setVisible(false);
+    }//GEN-LAST:event_jb_salirEliminarProveedorMouseClicked
+
+    private void jb_aceptarEliminarProveedorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_aceptarEliminarProveedorMouseClicked
+        int condicion = -1;
+        if (jtf_idEliminarProveedor.getText() == null) {
+            JOptionPane.showMessageDialog(this, "Ingrese el ID del proveedor que desea eliminar");
+        } else {
+            condicion = db.procedimientoEliminarProveedor(jtf_idEliminarProveedor.getText());
+            if (condicion == 1) {
+                JOptionPane.showMessageDialog(this, "La operación se ha realizo exitosamente");
+            } else if (condicion == 2) {
+                JOptionPane.showMessageDialog(this, "El ID del proveedor no existe");
+            }
+        }
+        jtf_idEliminarProveedor.setText("");
+        try {
+            db.cargarCBProveedor(jcb_idEliminarProveedor);
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jb_aceptarEliminarProveedorMouseClicked
+
+    private void jb_aceptarEliminarVehiculoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_aceptarEliminarVehiculoMouseClicked
+        int condicion = -1;
+        if (jtf_vinEliminarVehiculo.getText() == null) {
+            JOptionPane.showMessageDialog(this, "Ingrese el VIN del vehículo que desea eliminar");
+        } else {
+            condicion = db.procedimientoEliminarVehiculo(jtf_vinEliminarVehiculo.getText());
+            if (condicion == 1) {
+                JOptionPane.showMessageDialog(this, "La operación se ha realizo exitosamente");
+            } else if (condicion == 2) {
+                JOptionPane.showMessageDialog(this, "El VIN del vehículo no existe");
+            }
+        }
+        jtf_vinEliminarVehiculo.setText("");
+        try {
+            db.cargarCBVin(jcb_vinEliminarVehiculo);
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jb_aceptarEliminarVehiculoMouseClicked
+
+    private void jb_salirEliminarVehiculoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_salirEliminarVehiculoMouseClicked
+        jd_ventanaEliminarVehiculo.setVisible(false);
+    }//GEN-LAST:event_jb_salirEliminarVehiculoMouseClicked
+
+    private void jb_aceptarEliminarVentaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_aceptarEliminarVentaMouseClicked
+        int condicion = -1;
+        if (jtf_vinEliminarVehiculoVenta.getText() == null || jtf_rtnEliminarClienteVenta.getText() == null || jtf_rtnEliminarConcesionarioVenta.getText() == null) {
+            JOptionPane.showMessageDialog(this, "Ingrese todos los campos");
+        } else {
+            condicion = db.procedimientoEliminarVenta(jtf_rtnEliminarConcesionarioVenta.getText(), jtf_rtnEliminarClienteVenta.getText(), jtf_vinEliminarVehiculo.getText());
+            if (condicion == 1) {
+                JOptionPane.showMessageDialog(this, "La operación se ha realizo exitosamente");
+            } else if (condicion == 2) {
+                JOptionPane.showMessageDialog(this, "Uno de los campos no existe");
+            }
+        }
+        jtf_rtnEliminarConcesionarioVenta.setText("");
+        jtf_rtnEliminarClienteVenta.setText("");
+        jtf_vinEliminarVehiculo.setText("");
+
+        try {
+            db.cargarCBVin(jcb_vinEliminarVehiculoVenta);
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            db.cargarCBConcesionario(jcb_rtnEliminarConcesionarioVenta);
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            db.cargarCBCliente(jcb_rtnEliminarClienteVenta);
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jb_aceptarEliminarVentaMouseClicked
+
+    private void jb_salirEliminarVentaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_salirEliminarVentaMouseClicked
+        jd_ventanaEliminarVenta.setVisible(false);
+    }//GEN-LAST:event_jb_salirEliminarVentaMouseClicked
+
+    private static java.sql.Date convertUtilToSql(java.util.Date uDate) {
+        java.sql.Date sDate = new java.sql.Date(uDate.getTime());
+        return sDate;
+    }
 
     public void limpiarEspaciosTablaCliente() {
         jtf_rtnCliente.setText("");
@@ -1697,7 +2829,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1743,14 +2877,51 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel48;
     private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel50;
+    private javax.swing.JLabel jLabel51;
+    private javax.swing.JLabel jLabel52;
+    private javax.swing.JLabel jLabel53;
+    private javax.swing.JLabel jLabel54;
+    private javax.swing.JLabel jLabel55;
+    private javax.swing.JLabel jLabel56;
+    private javax.swing.JLabel jLabel57;
+    private javax.swing.JLabel jLabel58;
+    private javax.swing.JLabel jLabel59;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel60;
+    private javax.swing.JLabel jLabel61;
+    private javax.swing.JLabel jLabel62;
+    private javax.swing.JLabel jLabel63;
+    private javax.swing.JLabel jLabel64;
+    private javax.swing.JLabel jLabel65;
+    private javax.swing.JLabel jLabel66;
+    private javax.swing.JLabel jLabel67;
+    private javax.swing.JLabel jLabel68;
+    private javax.swing.JLabel jLabel69;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel70;
+    private javax.swing.JLabel jLabel72;
+    private javax.swing.JLabel jLabel73;
+    private javax.swing.JLabel jLabel74;
+    private javax.swing.JLabel jLabel75;
+    private javax.swing.JLabel jLabel76;
+    private javax.swing.JLabel jLabel77;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JButton jb_aceptarEliminarCliente;
+    private javax.swing.JButton jb_aceptarEliminarCompania;
+    private javax.swing.JButton jb_aceptarEliminarConcesionario;
+    private javax.swing.JButton jb_aceptarEliminarPlanta;
+    private javax.swing.JButton jb_aceptarEliminarProveedor;
+    private javax.swing.JButton jb_aceptarEliminarVehiculo;
+    private javax.swing.JButton jb_aceptarEliminarVenta;
     private javax.swing.JButton jb_bitacoraMenuOpciones;
     private javax.swing.JButton jb_clienteMenuTablas;
+    private javax.swing.JButton jb_clienteMenuTablas1;
     private javax.swing.JButton jb_companiaMenuTablas;
+    private javax.swing.JButton jb_companiaMenuTablas1;
     private javax.swing.JButton jb_concesionarioMenuTablas;
+    private javax.swing.JButton jb_concesionarioMenuTablas1;
     private javax.swing.JButton jb_crearMenuMantenimiento;
     private javax.swing.JButton jb_distribuidoresMenuPrincipal;
     private javax.swing.JButton jb_eliminarMenuMantemiento;
@@ -1767,31 +2938,59 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jb_mantenimientoMenuOpciones;
     private javax.swing.JButton jb_modificarMenuMantenimiento;
     private javax.swing.JButton jb_plantaMenuTablas;
+    private javax.swing.JButton jb_plantaMenuTablas1;
     private javax.swing.JButton jb_preciosMenuPrincipal;
     private javax.swing.JButton jb_productosMenuPrincipal;
     private javax.swing.JButton jb_proveedorMenuTablas;
+    private javax.swing.JButton jb_proveedorMenuTablas1;
     private javax.swing.JButton jb_reportesMenuOpciones;
     private javax.swing.JButton jb_salirCompania;
+    private javax.swing.JButton jb_salirEliminarCliente;
+    private javax.swing.JButton jb_salirEliminarConcesionario;
+    private javax.swing.JButton jb_salirEliminarPlanta;
+    private javax.swing.JButton jb_salirEliminarProveedor;
+    private javax.swing.JButton jb_salirEliminarVehiculo;
+    private javax.swing.JButton jb_salirEliminarVenta;
     private javax.swing.JButton jb_salirLogin;
     private javax.swing.JButton jb_salirMenuMantenimiento;
     private javax.swing.JButton jb_salirMenuOpciones;
     private javax.swing.JButton jb_salirMenuTablas;
+    private javax.swing.JButton jb_salirMenuTablas1;
     private javax.swing.JButton jb_salirProveedor;
     private javax.swing.JButton jb_salirVehiculo;
     private javax.swing.JButton jb_salirVenta;
     private javax.swing.JButton jb_vehiculoMenuTablas;
+    private javax.swing.JButton jb_vehiculoMenuTablas1;
     private javax.swing.JButton jb_ventaMenuTablas;
+    private javax.swing.JButton jb_ventaMenuTablas1;
     private javax.swing.JComboBox<String> jcb_companiaCliente;
     private javax.swing.JComboBox<String> jcb_idCompaniaPlanta;
     private javax.swing.JComboBox<String> jcb_idCompaniaVehiculo;
+    private javax.swing.JComboBox<String> jcb_idEliminarCompania;
+    private javax.swing.JComboBox<String> jcb_idEliminarPlanta;
+    private javax.swing.JComboBox<String> jcb_idEliminarProveedor;
     private javax.swing.JComboBox<String> jcb_rtnClienteVenta;
     private javax.swing.JComboBox<String> jcb_rtnConcesionarioVenta;
+    private javax.swing.JComboBox<String> jcb_rtnEliminarCliente;
+    private javax.swing.JComboBox<String> jcb_rtnEliminarClienteVenta;
+    private javax.swing.JComboBox<String> jcb_rtnEliminarConcesionario;
+    private javax.swing.JComboBox<String> jcb_rtnEliminarConcesionarioVenta;
     private javax.swing.JComboBox<String> jcb_sexoCliente;
+    private javax.swing.JComboBox<String> jcb_vinEliminarVehiculo;
+    private javax.swing.JComboBox<String> jcb_vinEliminarVehiculoVenta;
     private javax.swing.JComboBox<String> jcb_vinVenta;
+    private javax.swing.JDialog jd_eliminarTablas;
     private javax.swing.JDialog jd_ventanaAdmin;
     private javax.swing.JDialog jd_ventanaCliente;
     private javax.swing.JDialog jd_ventanaCompania;
     private javax.swing.JDialog jd_ventanaConcesionario;
+    private javax.swing.JDialog jd_ventanaEliminarCliente;
+    private javax.swing.JDialog jd_ventanaEliminarCompania;
+    private javax.swing.JDialog jd_ventanaEliminarConcesionario;
+    private javax.swing.JDialog jd_ventanaEliminarPlanta;
+    private javax.swing.JDialog jd_ventanaEliminarProveedor;
+    private javax.swing.JDialog jd_ventanaEliminarVehiculo;
+    private javax.swing.JDialog jd_ventanaEliminarVenta;
     private javax.swing.JDialog jd_ventanaLogin;
     private javax.swing.JDialog jd_ventanaMenuMantenimiento;
     private javax.swing.JDialog jd_ventanaMenuTabla;
@@ -1800,12 +2999,15 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JDialog jd_ventanaVehiculo;
     private javax.swing.JDialog jd_ventanaVenta;
     private com.toedter.calendar.JDateChooser jdc_fechaVehiculo;
+    private com.toedter.calendar.JDateChooser jdc_fechaVenta;
     private javax.swing.JTextField jtf_carroceriaVehiculo;
     private javax.swing.JTextField jtf_colorVehiculo;
     private javax.swing.JPasswordField jtf_contrasenaUsuario;
     private javax.swing.JTextField jtf_direccionCliente;
-    private javax.swing.JTextField jtf_fechaVenta;
     private javax.swing.JTextField jtf_idCompania;
+    private javax.swing.JTextField jtf_idEliminarCompania;
+    private javax.swing.JTextField jtf_idEliminarPlanta;
+    private javax.swing.JTextField jtf_idEliminarProveedor;
     private javax.swing.JTextField jtf_idPlanta;
     private javax.swing.JTextField jtf_idProveedor;
     private javax.swing.JTextField jtf_identidadCliente;
@@ -1823,12 +3025,18 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JTextField jtf_precioVehiculo;
     private javax.swing.JTextField jtf_precioVenta;
     private javax.swing.JTextField jtf_rtnCliente;
+    private javax.swing.JTextField jtf_rtnClienteEliminar;
     private javax.swing.JTextField jtf_rtnConcesionario;
+    private javax.swing.JTextField jtf_rtnEliminarClienteVenta;
+    private javax.swing.JTextField jtf_rtnEliminarConcesionario;
+    private javax.swing.JTextField jtf_rtnEliminarConcesionarioVenta;
     private javax.swing.JTextField jtf_telefonoCliente;
     private javax.swing.JTextField jtf_tipoCompaniaCliente;
     private javax.swing.JTextField jtf_tipoPlanta;
     private javax.swing.JTextField jtf_transmicionVehiculo;
     private javax.swing.JTextField jtf_ubicacionConcesionario;
+    private javax.swing.JTextField jtf_vinEliminarVehiculo;
+    private javax.swing.JTextField jtf_vinEliminarVehiculoVenta;
     private javax.swing.JTextField jtf_vinVehiculo;
     // End of variables declaration//GEN-END:variables
 }
