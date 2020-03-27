@@ -14,6 +14,7 @@ import javax.swing.ComboBoxModel;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.WindowConstants;
+import javax.swing.table.DefaultTableModel;
 
 public class MenuPrincipal extends javax.swing.JFrame {
 
@@ -352,6 +353,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jLabel120 = new javax.swing.JLabel();
         jb_guardarVentaModificar = new javax.swing.JButton();
         jb_salirVentaModificar = new javax.swing.JButton();
+        jd_bitacora = new javax.swing.JDialog();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jt_tablaBitacora = new javax.swing.JTable();
+        jb_salirBitacora = new javax.swing.JButton();
         jb_imagenCarroMenuPrincipal = new javax.swing.JLabel();
         jb_distribuidoresMenuPrincipal = new javax.swing.JButton();
         jb_productosMenuPrincipal = new javax.swing.JButton();
@@ -404,6 +409,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         jb_bitacoraMenuOpciones.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
         jb_bitacoraMenuOpciones.setText("Bitácora");
+        jb_bitacoraMenuOpciones.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_bitacoraMenuOpcionesMouseClicked(evt);
+            }
+        });
 
         jb_reportesMenuOpciones.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
         jb_reportesMenuOpciones.setText("Reportes");
@@ -3104,6 +3114,53 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jd_bitacora.setTitle("Bitácora");
+
+        jt_tablaBitacora.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        jt_tablaBitacora.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "IP", "Evento", "Tabla", "Llave Primaria", "Fecha", "Hora"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(jt_tablaBitacora);
+
+        jb_salirBitacora.setText("Salir");
+        jb_salirBitacora.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_salirBitacoraMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jd_bitacoraLayout = new javax.swing.GroupLayout(jd_bitacora.getContentPane());
+        jd_bitacora.getContentPane().setLayout(jd_bitacoraLayout);
+        jd_bitacoraLayout.setHorizontalGroup(
+            jd_bitacoraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 589, Short.MAX_VALUE)
+            .addGroup(jd_bitacoraLayout.createSequentialGroup()
+                .addGap(248, 248, 248)
+                .addComponent(jb_salirBitacora)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jd_bitacoraLayout.setVerticalGroup(
+            jd_bitacoraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_bitacoraLayout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jb_salirBitacora)
+                .addGap(0, 11, Short.MAX_VALUE))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Menú Cliente");
 
@@ -4071,6 +4128,38 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jd_ventanaModificarVenta.setVisible(false);
     }//GEN-LAST:event_jb_salirVentaModificarMouseClicked
 
+    private void jb_bitacoraMenuOpcionesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_bitacoraMenuOpcionesMouseClicked
+        DefaultTableModel modelo = new DefaultTableModel();
+        try {
+            String[] registros = new String [6];
+            ResultSet rs = db.getTabla("SELECT * FROM tblBitacora ORDER BY fecha DESC, hora DESC LIMIT 20");
+            modelo.setColumnIdentifiers(new Object[]{"IP", "Evento", "Tabla", "Llave primaria", "Fecha", "Hora"});
+            while(rs.next()){
+                //se añaden los resultados a la tabla
+                registros[0] = rs.getString(1);
+                registros[1] = rs.getString(2);
+                registros[2] = rs.getString(3);
+                registros[3] = rs.getString(4);
+                registros[4] = rs.getString(5);
+                registros[5] = rs.getString(6);
+                
+                modelo.addRow(registros);
+            }
+            jt_tablaBitacora.setModel(modelo);
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        jd_bitacora.pack();
+        jd_bitacora.setModal(true);
+        jd_bitacora.setLocationRelativeTo(this);
+        jd_bitacora.setVisible(true);
+        jd_ventanaAdmin.setVisible(false);
+    }//GEN-LAST:event_jb_bitacoraMenuOpcionesMouseClicked
+
+    private void jb_salirBitacoraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_salirBitacoraMouseClicked
+        jd_bitacora.setVisible(false);
+    }//GEN-LAST:event_jb_salirBitacoraMouseClicked
+
     private static java.sql.Date convertUtilToSql(java.util.Date uDate) {
         java.sql.Date sDate = new java.sql.Date(uDate.getTime());
         return sDate;
@@ -4262,6 +4351,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel97;
     private javax.swing.JLabel jLabel98;
     private javax.swing.JLabel jLabel99;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton jb_aceptarEliminarCliente;
     private javax.swing.JButton jb_aceptarEliminarCompania;
     private javax.swing.JButton jb_aceptarEliminarConcesionario;
@@ -4310,6 +4400,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jb_proveedorMenuTablas1;
     private javax.swing.JButton jb_proveedorMenuTablas2;
     private javax.swing.JButton jb_reportesMenuOpciones;
+    private javax.swing.JButton jb_salirBitacora;
     private javax.swing.JButton jb_salirClienteModificar;
     private javax.swing.JButton jb_salirCompania;
     private javax.swing.JButton jb_salirCompaniaModificar;
@@ -4368,6 +4459,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jcb_vinVehiculoModificar;
     private javax.swing.JComboBox<String> jcb_vinVenta;
     private javax.swing.JComboBox<String> jcb_vinVentaModificar;
+    private javax.swing.JDialog jd_bitacora;
     private javax.swing.JDialog jd_eliminarTablas;
     private javax.swing.JDialog jd_modificarTablas;
     private javax.swing.JDialog jd_ventanaAdmin;
@@ -4399,6 +4491,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private com.toedter.calendar.JDateChooser jdc_fechaVehiculoModificar;
     private com.toedter.calendar.JDateChooser jdc_fechaVenta;
     private com.toedter.calendar.JDateChooser jdc_fechaVentaModificar;
+    private javax.swing.JTable jt_tablaBitacora;
     private javax.swing.JTextField jtf_carroceriaVehiculo;
     private javax.swing.JTextField jtf_carroceriaVehiculoModificar;
     private javax.swing.JTextField jtf_colorVehiculo;

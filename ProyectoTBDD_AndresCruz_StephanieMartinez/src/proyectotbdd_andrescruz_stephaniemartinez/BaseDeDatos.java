@@ -8,10 +8,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Types;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComboBox;
-import javax.swing.JOptionPane;
 
 public class BaseDeDatos {
 
@@ -524,4 +524,16 @@ public class BaseDeDatos {
             idProveedor.addItem(rs.getString("idProv"));
         }
     }
+
+    public ResultSet getTabla(String consulta) throws SQLException {
+        ResultSet datos = null;
+        try {
+            stm = conexion.createStatement();
+            datos = stm.executeQuery(consulta);
+        } catch (Exception e) {
+            System.out.println(e.toString());
+        }
+        return datos;
+    }
+
 }
