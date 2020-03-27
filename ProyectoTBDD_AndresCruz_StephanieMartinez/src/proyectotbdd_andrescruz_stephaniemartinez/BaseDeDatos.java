@@ -171,7 +171,7 @@ public class BaseDeDatos {
         return resultado;
     }//Fin del método de insert en la tabla Vehiculo
 
-    public int procedimientoInsertarVenta(String rtnConcesionarioVenta, String rtnClienteVenta, String vinVenta, float precioVenta, Date fechaVenta){
+    public int procedimientoInsertarVenta(String rtnConcesionarioVenta, String rtnClienteVenta, String vinVenta, float precioVenta, Date fechaVenta) {
         int resultado = 0;
         try {
             // se crea instancia a procedimiento, los parametros de entrada y salida se simbolizan con el signo ?
@@ -387,16 +387,17 @@ public class BaseDeDatos {
         return resultado;
     }//Fin del método de update en la tabla Concesionario
 
-    public int procedimientoActualizarPlanta(String idPlanta, String nombrePlanta, String tipoPlanta) {
+    public int procedimientoActualizarPlanta(String idPlanta, String nombrePlanta, String tipoPlanta, String idCompania) {
         int resultado = 0;
         try {
             // se crea instancia a procedimiento, los parametros de entrada y salida se simbolizan con el signo ?
-            sp = conexion.prepareCall("{ ? = call PAUPlanta(?,?,?) }");
+            sp = conexion.prepareCall("{ ? = call PAUPlanta(?,?,?,?) }");
             //se cargan los parametros de entrada
             sp.registerOutParameter(1, Types.INTEGER);
             sp.setString(2, idPlanta);
             sp.setString(3, nombrePlanta);
             sp.setString(4, tipoPlanta);
+            sp.setString(5, idCompania);
             // Se ejecuta el procedimiento almacenado
             sp.execute();
             // devuelve el valor del parametro de salida del procedimiento
@@ -428,11 +429,11 @@ public class BaseDeDatos {
     }//Fin del método de update en la tabla Proveedor
 
     public int procedimientoActualizarVehiculo(String vinVehiculo, String modeloVehiculo, String tipoCarroceria, String tipoMotor, String colorVehiculo,
-            String transmisionVehiculo, Date fechaEnsamblaje, float precioVehiculo) {
+            String transmisionVehiculo, Date fechaEnsamblaje, float precioVehiculo, String idCompaniaVehiculo) {
         int resultado = 0;
         try {
             // se crea instancia a procedimiento, los parametros de entrada y salida se simbolizan con el signo ?
-            sp = conexion.prepareCall("{ ? = call PAIVehiculo(?,?,?,?,?,?,?,?) }");
+            sp = conexion.prepareCall("{ ? = call PAUVehiclo(?,?,?,?,?,?,?,?,?) }");
             //se cargan los parametros de entrada
             sp.registerOutParameter(1, Types.INTEGER);
             sp.setString(2, vinVehiculo);
@@ -443,6 +444,7 @@ public class BaseDeDatos {
             sp.setString(7, transmisionVehiculo);
             sp.setDate(8, fechaEnsamblaje);
             sp.setFloat(9, precioVehiculo);
+            sp.setString(10, idCompaniaVehiculo);
             // Se ejecuta el procedimiento almacenado
             sp.execute();
             // devuelve el valor del parametro de salida del procedimiento
@@ -453,7 +455,7 @@ public class BaseDeDatos {
         return resultado;
     }//Fin del método de update en la tabla Vehiculo
 
-    public int procedimientoActualizarVenta(String rtnConcesionarioVenta, String rtnClienteVenta, String vinVenta, String tipoMotor, String colorVehiculo, String transmisionVehiculo, Date fechaVenta, float precioVenta, String idCompaniaVehiculo) {
+    public int procedimientoActualizarVenta(String rtnConcesionarioVenta, String rtnClienteVenta, String vinVenta, float precioVenta, Date fechaVenta) {
         int resultado = 0;
         try {
             // se crea instancia a procedimiento, los parametros de entrada y salida se simbolizan con el signo ?
@@ -506,7 +508,7 @@ public class BaseDeDatos {
             vinVenta.addItem(rs.getString("vin"));
         }
     }
-    
+
     public void cargarCBPlanta(JComboBox idPlanta) throws SQLException {
         stm = conexion.createStatement();
         ResultSet rs = stm.executeQuery("select * from tblPlanta");
@@ -514,7 +516,7 @@ public class BaseDeDatos {
             idPlanta.addItem(rs.getString("idPlan"));
         }
     }
-    
+
     public void cargarCBProveedor(JComboBox idProveedor) throws SQLException {
         stm = conexion.createStatement();
         ResultSet rs = stm.executeQuery("select * from tblProveedor");
