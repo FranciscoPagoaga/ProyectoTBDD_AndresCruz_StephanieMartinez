@@ -3632,7 +3632,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
             } else if (jtf_nombreUsuario.getText().equalsIgnoreCase("servicio de localizacion") && contrasena.equalsIgnoreCase("456")) {
                 //Agregar venta para los reportes
             } else if (jtf_nombreUsuario.getText().equalsIgnoreCase("marketing") && contrasena.equalsIgnoreCase("789")) {
-                //agregar ventana para marketing
+                jd_menuReportes.pack();
+                jd_menuReportes.setModal(true);
+                jd_menuReportes.setLocationRelativeTo(this);
+                jd_menuReportes.setVisible(true);
+                jd_ventanaLogin.setVisible(false);
             } else {
                 JOptionPane.showMessageDialog(this, "Usuario o constraseña incorrecto");
             }
