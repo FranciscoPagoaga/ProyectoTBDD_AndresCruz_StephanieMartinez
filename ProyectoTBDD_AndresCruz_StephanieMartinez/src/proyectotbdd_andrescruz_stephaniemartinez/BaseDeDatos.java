@@ -12,6 +12,8 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComboBox;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 public class BaseDeDatos {
 
@@ -534,6 +536,36 @@ public class BaseDeDatos {
             System.out.println(e.toString());
         }
         return datos;
+    }
+
+    public void defectuoso(String idProveedor, Date fechaInicio, Date fechaFinal, JTable tabla) {
+        try {
+            // se crea instancia a procedimiento, los parametros de entrada y salida se simbolizan con el signo ?
+            sp =  conexion.prepareCall("{call PDefectuoso(?,?,?) }");
+            //se cargan los parametros de entrada
+            sp.setString(1, idProveedor);
+            sp.setDate(2, fechaInicio);
+            sp.setDate(3, fechaFinal);
+            // Se ejecuta el procedimiento almacenado
+            sp.execute();
+            DefaultTableModel modelo = new DefaultTableModel();
+            try {
+                ResultSet rs = null;
+                String[] registros = new String[2];
+                modelo.setColumnIdentifiers(new Object[]{"VIN", "RTN del Cliente", "Nombre del Cliente"});
+                while (rs.next()) {
+                    //se añaden los resultados a la tabla
+                    registros[0] = sp.getString(1);
+                    registros[1] = sp.getString(2);
+                    modelo.addRow(registros);
+                }
+                tabla.setModel(modelo);
+            } catch (SQLException ex) {
+                Logger.getLogger(MenuPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
     }
 
 }
