@@ -357,6 +357,24 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jt_tablaBitacora = new javax.swing.JTable();
         jb_salirBitacora = new javax.swing.JButton();
+        jd_menuReportes = new javax.swing.JDialog();
+        jLabel121 = new javax.swing.JLabel();
+        jb_tendenciasReporte = new javax.swing.JButton();
+        jb_transmicionReporte = new javax.swing.JButton();
+        jb_marcasReporte = new javax.swing.JButton();
+        jb_mejoresMarcasReporte = new javax.swing.JButton();
+        jb_ventaReporte = new javax.swing.JButton();
+        jb_distribuidoresReporte = new javax.swing.JButton();
+        jb_salirReporte = new javax.swing.JButton();
+        jd_tendenciasReporteMenu = new javax.swing.JDialog();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jt_tendenciasReporte = new javax.swing.JTable();
+        jb_tendenciaAnioReporte = new javax.swing.JButton();
+        jb_tendenciaMesReporte = new javax.swing.JButton();
+        jb_tendenciaSemanaReporte = new javax.swing.JButton();
+        jb_tendenciaGeneroReporte = new javax.swing.JButton();
+        jb_salirTendenciaReporte = new javax.swing.JButton();
+        jb_rangoTendenciaReporte = new javax.swing.JButton();
         jb_imagenCarroMenuPrincipal = new javax.swing.JLabel();
         jb_distribuidoresMenuPrincipal = new javax.swing.JButton();
         jb_productosMenuPrincipal = new javax.swing.JButton();
@@ -417,6 +435,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         jb_reportesMenuOpciones.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
         jb_reportesMenuOpciones.setText("Reportes");
+        jb_reportesMenuOpciones.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_reportesMenuOpcionesMouseClicked(evt);
+            }
+        });
 
         jb_salirMenuOpciones.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
         jb_salirMenuOpciones.setText("Salir");
@@ -3161,6 +3184,183 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 .addGap(0, 11, Short.MAX_VALUE))
         );
 
+        jd_menuReportes.setTitle("Menú Reportes");
+
+        jLabel121.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jLabel121.setText("Menú Reportes");
+
+        jb_tendenciasReporte.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        jb_tendenciasReporte.setText("Tendencias de ventas");
+        jb_tendenciasReporte.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_tendenciasReporteMouseClicked(evt);
+            }
+        });
+
+        jb_transmicionReporte.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        jb_transmicionReporte.setText("VIN de automóvil con transmición defectuosa");
+
+        jb_marcasReporte.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        jb_marcasReporte.setText("Mejores marcas");
+
+        jb_mejoresMarcasReporte.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        jb_mejoresMarcasReporte.setText("Mejores marcas por unidad");
+
+        jb_ventaReporte.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        jb_ventaReporte.setText("Venta de convertibles");
+
+        jb_distribuidoresReporte.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        jb_distribuidoresReporte.setText("Distribuidores");
+
+        jb_salirReporte.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        jb_salirReporte.setText("Salir");
+
+        javax.swing.GroupLayout jd_menuReportesLayout = new javax.swing.GroupLayout(jd_menuReportes.getContentPane());
+        jd_menuReportes.getContentPane().setLayout(jd_menuReportesLayout);
+        jd_menuReportesLayout.setHorizontalGroup(
+            jd_menuReportesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_menuReportesLayout.createSequentialGroup()
+                .addContainerGap(74, Short.MAX_VALUE)
+                .addGroup(jd_menuReportesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(jb_salirReporte)
+                    .addComponent(jb_distribuidoresReporte)
+                    .addComponent(jb_ventaReporte)
+                    .addComponent(jb_mejoresMarcasReporte)
+                    .addComponent(jb_marcasReporte)
+                    .addComponent(jb_transmicionReporte)
+                    .addComponent(jb_tendenciasReporte)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jd_menuReportesLayout.createSequentialGroup()
+                        .addGap(74, 74, 74)
+                        .addComponent(jLabel121)))
+                .addGap(67, 67, 67))
+        );
+        jd_menuReportesLayout.setVerticalGroup(
+            jd_menuReportesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_menuReportesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel121)
+                .addGap(33, 33, 33)
+                .addComponent(jb_tendenciasReporte)
+                .addGap(18, 18, 18)
+                .addComponent(jb_transmicionReporte)
+                .addGap(18, 18, 18)
+                .addComponent(jb_marcasReporte)
+                .addGap(18, 18, 18)
+                .addComponent(jb_mejoresMarcasReporte)
+                .addGap(18, 18, 18)
+                .addComponent(jb_ventaReporte)
+                .addGap(18, 18, 18)
+                .addComponent(jb_distribuidoresReporte)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                .addComponent(jb_salirReporte)
+                .addContainerGap())
+        );
+
+        jd_tendenciasReporteMenu.setTitle("Tendencias de ventas para varias marcas ");
+
+        jt_tendenciasReporte.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "", "", "", "", ""
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(jt_tendenciasReporte);
+
+        jb_tendenciaAnioReporte.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        jb_tendenciaAnioReporte.setText("Año");
+        jb_tendenciaAnioReporte.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_tendenciaAnioReporteMouseClicked(evt);
+            }
+        });
+
+        jb_tendenciaMesReporte.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        jb_tendenciaMesReporte.setText("Mes");
+        jb_tendenciaMesReporte.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_tendenciaMesReporteMouseClicked(evt);
+            }
+        });
+
+        jb_tendenciaSemanaReporte.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        jb_tendenciaSemanaReporte.setText("Semana");
+        jb_tendenciaSemanaReporte.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_tendenciaSemanaReporteMouseClicked(evt);
+            }
+        });
+
+        jb_tendenciaGeneroReporte.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        jb_tendenciaGeneroReporte.setText("Género");
+        jb_tendenciaGeneroReporte.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_tendenciaGeneroReporteMouseClicked(evt);
+            }
+        });
+
+        jb_salirTendenciaReporte.setText("Salir");
+        jb_salirTendenciaReporte.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_salirTendenciaReporteMouseClicked(evt);
+            }
+        });
+
+        jb_rangoTendenciaReporte.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        jb_rangoTendenciaReporte.setText("Rango de ingresos");
+        jb_rangoTendenciaReporte.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_rangoTendenciaReporteMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jd_tendenciasReporteMenuLayout = new javax.swing.GroupLayout(jd_tendenciasReporteMenu.getContentPane());
+        jd_tendenciasReporteMenu.getContentPane().setLayout(jd_tendenciasReporteMenuLayout);
+        jd_tendenciasReporteMenuLayout.setHorizontalGroup(
+            jd_tendenciasReporteMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_tendenciasReporteMenuLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jb_salirTendenciaReporte)
+                .addContainerGap())
+            .addGroup(jd_tendenciasReporteMenuLayout.createSequentialGroup()
+                .addGap(55, 55, 55)
+                .addComponent(jb_tendenciaAnioReporte)
+                .addGap(18, 18, 18)
+                .addComponent(jb_tendenciaMesReporte)
+                .addGap(18, 18, 18)
+                .addComponent(jb_tendenciaSemanaReporte)
+                .addGap(18, 18, 18)
+                .addComponent(jb_tendenciaGeneroReporte)
+                .addGap(18, 18, 18)
+                .addComponent(jb_rangoTendenciaReporte)
+                .addContainerGap(97, Short.MAX_VALUE))
+            .addComponent(jScrollPane2)
+        );
+        jd_tendenciasReporteMenuLayout.setVerticalGroup(
+            jd_tendenciasReporteMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_tendenciasReporteMenuLayout.createSequentialGroup()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jd_tendenciasReporteMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jb_tendenciaAnioReporte)
+                    .addComponent(jb_tendenciaMesReporte)
+                    .addComponent(jb_tendenciaSemanaReporte)
+                    .addComponent(jb_tendenciaGeneroReporte)
+                    .addComponent(jb_rangoTendenciaReporte))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addComponent(jb_salirTendenciaReporte)
+                .addContainerGap())
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Menú Cliente");
 
@@ -3967,7 +4167,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jd_ventanaModificarProveedor.setLocationRelativeTo(this);
         jd_ventanaModificarProveedor.setVisible(true);
         jd_modificarTablas.setVisible(false);
-        
+
     }//GEN-LAST:event_jb_proveedorMenuTablas2MouseClicked
 
     private void jb_salirMenuTablas2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_salirMenuTablas2MouseClicked
@@ -4085,7 +4285,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         int condicion = -1;
         float precio = Float.parseFloat(jtf_precioVehiculoModificar.getText());
         String idCompania = ((String) jcb_idCompaniaVehiculoModificar.getSelectedItem());
-        String vinModificar = ((String)jcb_vinVehiculoModificar.getSelectedItem());
+        String vinModificar = ((String) jcb_vinVehiculoModificar.getSelectedItem());
         java.util.Date utilDate = jdc_fechaVehiculoModificar.getDate();
         java.sql.Date sDate = convertUtilToSql(utilDate);
         condicion = db.procedimientoActualizarVehiculo(vinModificar, jtf_modeloVehiculoModificar.getText(), jtf_carroceriaVehiculoModificar.getText(), jtf_motorVehiculoModificar.getText(), jtf_colorVehiculoModificar.getText(),
@@ -4094,7 +4294,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "El vehículo se ha modificado exitosamente");
         } else if (condicion == 2) {
             JOptionPane.showMessageDialog(this, "El VIN del vehículo no existe");
-        } 
+        }
         jtf_modeloVehiculoModificar.setText("");
         jtf_carroceriaVehiculoModificar.setText("");
         jtf_motorVehiculoModificar.setText("");
@@ -4131,10 +4331,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private void jb_bitacoraMenuOpcionesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_bitacoraMenuOpcionesMouseClicked
         DefaultTableModel modelo = new DefaultTableModel();
         try {
-            String[] registros = new String [6];
+            String[] registros = new String[6];
             ResultSet rs = db.getTabla("SELECT * FROM tblBitacora ORDER BY fecha DESC, hora DESC LIMIT 20");
             modelo.setColumnIdentifiers(new Object[]{"IP", "Evento", "Tabla", "Llave primaria", "Fecha", "Hora"});
-            while(rs.next()){
+            while (rs.next()) {
                 //se añaden los resultados a la tabla
                 registros[0] = rs.getString(1);
                 registros[1] = rs.getString(2);
@@ -4142,7 +4342,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 registros[3] = rs.getString(4);
                 registros[4] = rs.getString(5);
                 registros[5] = rs.getString(6);
-                
+
                 modelo.addRow(registros);
             }
             jt_tablaBitacora.setModel(modelo);
@@ -4158,7 +4358,118 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void jb_salirBitacoraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_salirBitacoraMouseClicked
         jd_bitacora.setVisible(false);
+        jd_ventanaAdmin.setVisible(true);
     }//GEN-LAST:event_jb_salirBitacoraMouseClicked
+
+    private void jb_reportesMenuOpcionesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_reportesMenuOpcionesMouseClicked
+        jd_menuReportes.pack();
+        jd_menuReportes.setModal(true);
+        jd_menuReportes.setLocationRelativeTo(this);
+        jd_menuReportes.setVisible(true);
+        jd_ventanaAdmin.setVisible(false);
+    }//GEN-LAST:event_jb_reportesMenuOpcionesMouseClicked
+
+    private void jb_tendenciasReporteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_tendenciasReporteMouseClicked
+        jd_tendenciasReporteMenu.pack();
+        jd_tendenciasReporteMenu.setModal(true);
+        jd_tendenciasReporteMenu.setLocationRelativeTo(this);
+        jd_tendenciasReporteMenu.setVisible(true);
+        jd_menuReportes.setVisible(false);
+    }//GEN-LAST:event_jb_tendenciasReporteMouseClicked
+
+    private void jb_tendenciaAnioReporteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_tendenciaAnioReporteMouseClicked
+        DefaultTableModel modelo = new DefaultTableModel();
+        try {
+            String[] registros = new String[4];
+            ResultSet rs = db.getTabla("SELECT *\n"
+                    + "FROM tendenciaporMes;");
+            modelo.setColumnIdentifiers(new Object[]{"Año", "Marca", "Precio", "Cantidad de autos vendidos"});
+            while (rs.next()) {
+                //se añaden los resultados a la tabla
+                registros[0] = rs.getString(1);
+                registros[1] = rs.getString(2);
+                registros[2] = rs.getString(3);
+                registros[3] = rs.getString(4);
+                modelo.addRow(registros);
+            }
+            jt_tendenciasReporte.setModel(modelo);
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }//GEN-LAST:event_jb_tendenciaAnioReporteMouseClicked
+
+    private void jb_salirTendenciaReporteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_salirTendenciaReporteMouseClicked
+        jd_tendenciasReporteMenu.setVisible(false);
+        jd_ventanaAdmin.setVisible(true);
+    }//GEN-LAST:event_jb_salirTendenciaReporteMouseClicked
+
+    private void jb_tendenciaMesReporteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_tendenciaMesReporteMouseClicked
+        DefaultTableModel modelo = new DefaultTableModel();
+        try {
+            String[] registros = new String[4];
+            ResultSet rs = db.getTabla("SELECT *\n"
+                    + "FROM tendenciaporMes;");
+            modelo.setColumnIdentifiers(new Object[]{"Mes", "Marca", "Precio", "Cantidad de autos vendidos"});
+            while (rs.next()) {
+                //se añaden los resultados a la tabla
+                registros[0] = rs.getString(1);
+                registros[1] = rs.getString(2);
+                registros[2] = rs.getString(3);
+                registros[3] = rs.getString(4);
+                modelo.addRow(registros);
+            }
+            jt_tendenciasReporte.setModel(modelo);
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jb_tendenciaMesReporteMouseClicked
+
+    private void jb_tendenciaSemanaReporteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_tendenciaSemanaReporteMouseClicked
+        DefaultTableModel modelo = new DefaultTableModel();
+        try {
+            String[] registros = new String[5];
+            ResultSet rs = db.getTabla("SELECT *\n"
+                    + "FROM tendenciaporSemana;");
+            modelo.setColumnIdentifiers(new Object[]{"Año", "Semana", "Marca", "Precio", "Cantidad de autos vendidos"});
+            while (rs.next()) {
+                //se añaden los resultados a la tabla
+                registros[0] = rs.getString(1);
+                registros[1] = rs.getString(2);
+                registros[2] = rs.getString(3);
+                registros[3] = rs.getString(4);
+                registros[4] = rs.getString(5);
+                modelo.addRow(registros);
+            }
+            jt_tendenciasReporte.setModel(modelo);
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jb_tendenciaSemanaReporteMouseClicked
+
+    private void jb_tendenciaGeneroReporteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_tendenciaGeneroReporteMouseClicked
+        DefaultTableModel modelo = new DefaultTableModel();
+        try {
+            String[] registros = new String[3];
+            ResultSet rs = db.getTabla("SELECT *\n"
+                    + "FROM tendenciaporRangoIngreso;");
+            modelo.setColumnIdentifiers(new Object[]{"Marca", "Ingreso", "Cantidad de autos vendidos"});
+            while (rs.next()) {
+                //se añaden los resultados a la tabla
+                registros[0] = rs.getString(1);
+                registros[1] = rs.getString(2);
+                registros[2] = rs.getString(3);
+                modelo.addRow(registros);
+            }
+            jt_tendenciasReporte.setModel(modelo);
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jb_tendenciaGeneroReporteMouseClicked
+
+    private void jb_rangoTendenciaReporteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_rangoTendenciaReporteMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jb_rangoTendenciaReporteMouseClicked
 
     private static java.sql.Date convertUtilToSql(java.util.Date uDate) {
         java.sql.Date sDate = new java.sql.Date(uDate.getTime());
@@ -4256,6 +4567,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel119;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel120;
+    private javax.swing.JLabel jLabel121;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
@@ -4352,6 +4664,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel98;
     private javax.swing.JLabel jLabel99;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JButton jb_aceptarEliminarCliente;
     private javax.swing.JButton jb_aceptarEliminarCompania;
     private javax.swing.JButton jb_aceptarEliminarConcesionario;
@@ -4371,6 +4684,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jb_concesionarioMenuTablas2;
     private javax.swing.JButton jb_crearMenuMantenimiento;
     private javax.swing.JButton jb_distribuidoresMenuPrincipal;
+    private javax.swing.JButton jb_distribuidoresReporte;
     private javax.swing.JButton jb_eliminarMenuMantemiento;
     private javax.swing.JButton jb_guardarClienteModificar;
     private javax.swing.JButton jb_guardarCompania;
@@ -4390,6 +4704,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jb_inventarioMenuPrincipal;
     private javax.swing.JButton jb_login;
     private javax.swing.JButton jb_mantenimientoMenuOpciones;
+    private javax.swing.JButton jb_marcasReporte;
+    private javax.swing.JButton jb_mejoresMarcasReporte;
     private javax.swing.JButton jb_modificarMenuMantenimiento;
     private javax.swing.JButton jb_plantaMenuTablas;
     private javax.swing.JButton jb_plantaMenuTablas1;
@@ -4399,6 +4715,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jb_proveedorMenuTablas;
     private javax.swing.JButton jb_proveedorMenuTablas1;
     private javax.swing.JButton jb_proveedorMenuTablas2;
+    private javax.swing.JButton jb_rangoTendenciaReporte;
     private javax.swing.JButton jb_reportesMenuOpciones;
     private javax.swing.JButton jb_salirBitacora;
     private javax.swing.JButton jb_salirClienteModificar;
@@ -4420,16 +4737,25 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jb_salirModificarPlanta;
     private javax.swing.JButton jb_salirProveedor;
     private javax.swing.JButton jb_salirProveedorModificar;
+    private javax.swing.JButton jb_salirReporte;
+    private javax.swing.JButton jb_salirTendenciaReporte;
     private javax.swing.JButton jb_salirVehiculo;
     private javax.swing.JButton jb_salirVehiculoModificar;
     private javax.swing.JButton jb_salirVenta;
     private javax.swing.JButton jb_salirVentaModificar;
+    private javax.swing.JButton jb_tendenciaAnioReporte;
+    private javax.swing.JButton jb_tendenciaGeneroReporte;
+    private javax.swing.JButton jb_tendenciaMesReporte;
+    private javax.swing.JButton jb_tendenciaSemanaReporte;
+    private javax.swing.JButton jb_tendenciasReporte;
+    private javax.swing.JButton jb_transmicionReporte;
     private javax.swing.JButton jb_vehiculoMenuTablas;
     private javax.swing.JButton jb_vehiculoMenuTablas1;
     private javax.swing.JButton jb_vehiculoMenuTablas2;
     private javax.swing.JButton jb_ventaMenuTablas;
     private javax.swing.JButton jb_ventaMenuTablas1;
     private javax.swing.JButton jb_ventaMenuTablas2;
+    private javax.swing.JButton jb_ventaReporte;
     private javax.swing.JComboBox<String> jcb_companiaCliente;
     private javax.swing.JComboBox<String> jcb_companiaClienteModificar;
     private javax.swing.JComboBox<String> jcb_idCompaniaPlanta;
@@ -4461,7 +4787,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jcb_vinVentaModificar;
     private javax.swing.JDialog jd_bitacora;
     private javax.swing.JDialog jd_eliminarTablas;
+    private javax.swing.JDialog jd_menuReportes;
     private javax.swing.JDialog jd_modificarTablas;
+    private javax.swing.JDialog jd_tendenciasReporteMenu;
     private javax.swing.JDialog jd_ventanaAdmin;
     private javax.swing.JDialog jd_ventanaCliente;
     private javax.swing.JDialog jd_ventanaCompania;
@@ -4492,6 +4820,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private com.toedter.calendar.JDateChooser jdc_fechaVenta;
     private com.toedter.calendar.JDateChooser jdc_fechaVentaModificar;
     private javax.swing.JTable jt_tablaBitacora;
+    private javax.swing.JTable jt_tendenciasReporte;
     private javax.swing.JTextField jtf_carroceriaVehiculo;
     private javax.swing.JTextField jtf_carroceriaVehiculoModificar;
     private javax.swing.JTextField jtf_colorVehiculo;
